@@ -1,14 +1,10 @@
-// Ionic Starter App
 
 // angular.module is a global place for creating, registering and retrieving Angular modules
-// 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
+// 'azZahraa' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-// 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers'])
+// 'azZahraa.controllers' is found in controllers.js
+angular.module('azZahraa', [ 'ionic', 'azZahraa.controllers'])
 
-.constant('ApiEndpoint', {
-  url: 'http://localhost:8100/api'
-})
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {

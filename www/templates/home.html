@@ -2,17 +2,36 @@
   <ion-content>
    
      <h2>Date</h2>
-        {{date | date:'EEEE dd MMMM yyyy'}}
+        {{today | date:'EEEE dd MMMM yyyy'}}
+        <br>
+        {{today | date:short}}
         <br>
         Lunar Date HERE
+        <br>
+        The calendar offset is:
+          <span ng-if="calendarOffset === 0">
+            Calendar offset is 0!
+            </span>
+         <!--{{calendarOffset}}-->
 
      <h2>Namaaz</h2>
      
      <h2>Next Event</h2>
-
-     <li ng-repeat="event in events">
-        {{event.title}}
+     <!-- figure out how to get next event title here! (compare to current date?) -->
+     
+     
+      
+     <li ng-repeat="event in events" >
+       {{event.title}}
+       <!-- being converted incorrectly! -->
+       
+       <br>
+       {{event.date | castStringToDate | date:'EEEE dd MMMM yyyy h:mm:ss a'}}
+       <br>
+       {{event.date}}
     </li>
+    
+    
 
   </ion-content>
 </ion-view>
