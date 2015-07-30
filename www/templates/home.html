@@ -18,18 +18,21 @@
      
      <h2>Next Event</h2>
      <!-- figure out how to get next event title here! (compare to current date?) -->
+     {{nextEvent.title}}
      
      
-      
+     
+     <!--<h5>Test Data:</h5> 
+
      <li ng-repeat="event in events" >
        {{event.title}}
-       <!-- being converted incorrectly! -->
+      
        
        <br>
-       {{event.date | castStringToDate | date:'EEEE dd MMMM yyyy h:mm:ss a'}}
+       {{event.date | castStringToDate | date:'EEEE dd MMMM yyyy'}} @  {{event.date | castStringToDate | date:'h:mm:ss a'}}
        <br>
-       {{event.date}}
-    </li>
+
+    </li>-->
     
     
 
