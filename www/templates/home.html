@@ -22,17 +22,17 @@
      
      
      
-     <!--<h5>Test Data:</h5> 
+     <h5>Test Data:</h5> 
 
      <li ng-repeat="event in events" >
-       {{event.title}}
+       <!--{{event.title}}-->
       
        
        <br>
-       {{event.date | castStringToDate | date:'EEEE dd MMMM yyyy'}} @  {{event.date | castStringToDate | date:'h:mm:ss a'}}
-       <br>
+       ORIG DATE: {{event.date}}<br>
+       {{event.date | castStringToDate | date:short }}
 
-    </li>-->
+    </li>
     
     
 

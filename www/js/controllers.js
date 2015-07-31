@@ -2,8 +2,10 @@ var app = angular.module('azZahraa.controllers', [])
 
 .filter('castStringToDate', function() {
   return function(stringDate) {
-    realDate = Date.parse(stringDate, "d/M/yyyy h:mm:ss PM" );
-    return realDate;
+    //realDate = Date.parse(stringDate, "d/M/yyyy h:mm:ss PM" );
+    var realDate = moment(stringDate,"D/M/yyyy h:mm:ss A");
+    var realDateFormatted = realDate.format("D/M/YYYY h:m:ss A");
+    return realDateFormatted;
   };
 })
 
@@ -20,19 +22,20 @@ var app = angular.module('azZahraa.controllers', [])
         $scope.eventDates = Date.parse(data.events[0].date);
        // console.log($scope.eventDates);
        
-       //get next event and store in $scope.nextEvent 
-        for (var i = 0; i < (data.events).length; i++) {
        
-          var eventDateAsString = data.events[i].date; 
-          var eventDate = Date.parse(eventDateAsString, "d/M/yyyy h:mm:ss PM" );
-          if(eventDate >= $scope.today) { 
-             $scope.nextEvent= data.events[i];
-             console.log("Today is: " + Date.today());
-             console.log("Event after today is: " + $scope.nextEvent.date);
-             console.log(data.events[i]);
-             break;
-          }       
-        }
+       //get next event and store in $scope.nextEvent 
+        // for (var i = 0; i < (data.events).length; i++) {
+       
+        //   var eventDateAsString = data.events[i].date; 
+        //   var eventDate = Date.parse(eventDateAsString, "d/M/yyyy h:mm:ss PM" );
+        //   if(eventDate >= $scope.today) { 
+        //      $scope.nextEvent= data.events[i];
+        //      console.log("Today is: " + Date.today());
+        //      console.log("Event after today is: " + $scope.nextEvent.date);
+        //      console.log(data.events[i]);
+        //      break;
+        //   }       
+        // }
      });
 });
 
