@@ -3,45 +3,25 @@
    
      <h2>Date</h2>
         {{today | formatDate}}
-        <br>
-        {{today}}
+     
         <br>
         Lunar Date: {{todayIslamicDate}}
         <br>
-        The calendar offset is:
-          <span ng-if="calendarOffset === 0">
-            Calendar offset is 0!
-            </span>
-         <!--{{calendarOffset}}-->
+       
 
      <h2>Namaaz</h2>
-     Today Fajr: {{todayFajr | formatDate}} <br>
-     Today Sunrise: {{todaySunrise | formatDate}}<br>
-     Today Zuhr: {{todayZuhr | formatDate}}<br>
-     Today Sunset: {{todaySunset | formatDate}}<br>
-     Today Maghrib: {{todayMaghrib | formatDate}}
+     Fajr: {{todayFajr | formatDate}} <br>
+     Sunrise: {{todaySunrise | formatDate}}<br>
+     Zuhr: {{todayZuhr | formatDate}}<br>
+     Sunset: {{todaySunset | formatDate}}<br>
+     Maghrib: {{todayMaghrib | formatDate}}
      
      
      <h2>Next Event</h2>
-     <!-- figure out how to get next event title here! (compare to current date?) -->
+
      {{nextEvent.title}}<br>
      {{nextEvent.date}}<br>
      {{nextEvent.description | formatDescription}}
      
-   <!--  
-     <h5>Test Data:</h5> 
-
-     <li ng-repeat="event in events" >
-       {{event.title}}
-      
-       
-       <br>
-       ORIG DATE: {{event.date}}<br>
-       {{event.date | castStringToDate | formatDate }}
-
-    </li> -->
-    
-    
-
   </ion-content>
 </ion-view>
