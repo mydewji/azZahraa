@@ -10,7 +10,14 @@ var app = angular.module('azZahraa.controllers', [])
 
 .filter('formatDate', function() {
   return function(stringDate) {
-    var stringDateFormatted = stringDate.format("D/M/YYYY h:mm:ss A");
+    var stringDateFormatted = stringDate.format("D/M/YYYY");
+    return stringDateFormatted;
+  };
+})
+
+.filter('getTime', function() {
+  return function(stringDate) {
+    var stringDateFormatted = stringDate.format("h:mm a");
     return stringDateFormatted;
   };
 })

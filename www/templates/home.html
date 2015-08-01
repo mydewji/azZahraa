@@ -1,27 +1,70 @@
 <ion-view view-title="Home">
   <ion-content>
+    
+    <!-- Date Card -->
+    <div class="card">
+      <div class="item item-divider">
+        Today's Islamic Date
+      </div>
+      <div class="item item-text-wrap">
+          <i class="icon ion-ios-clock-outline"></i>
+          {{todayIslamicDate}}
+      </div>  
+    </div>
+    
+    <!-- Namaaz Card -->
+    <div class="list card">
+      <div class="item item-divider">
+        Today's Namaaz timings
+      </div>
+
+      <a href="#" class="item item-icon-left">
+        <i class="icon ion-flame"></i>
+        Fajr: {{todayFajr | getTime}}
+      </a>
+      
+      <a href="#" class="item item-icon-left">
+        <i class="icon ion-android-sunny"></i>
+        Sunrise: {{todaySunrise | getTime}}
+      </a>
+      
+      <a href="#" class="item item-icon-left">
+        <i class="icon ion-flash"></i>
+         Zuhr: {{todayZuhr | getTime}}
+      </a>
+      
+      <a href="#" class="item item-icon-left">
+        <i class="icon ion-android-sunny"></i>
+        Sunset: {{todaySunset | getTime}}
+      </a>
+      
+      <a href="#" class="item item-icon-left">
+        <i class="icon ion-flash"></i>
+        Maghrib: {{todayMaghrib | getTime}}
+      </a>
+    </div>
+
+  <!-- Next Event Card -->
+    <div class="list card">
+      <div class="item item-divider">
+         Next Event
+      </div>
+
+      <a href="#" class="item item-icon-left">
+        <i class="icon ion-ios-calendar-outline"></i>
+        {{nextEvent.title}}
+      </a>
+      
+      <a href="#" class="item item-icon-left">
+        <i class="icon ion-ios-clock-outline"></i>
+        {{nextEvent.date}}
+      </a>
+      
+      <a href="#" class="item item-icon-left item-text-wrap">
+        <i class="icon ion-edit"></i>
+            {{nextEvent.description | formatDescription}}
+      </a>
+    </div>
    
-     <h2>Date</h2>
-        {{today | formatDate}}
-     
-        <br>
-        Lunar Date: {{todayIslamicDate}}
-        <br>
-       
-
-     <h2>Namaaz</h2>
-     Fajr: {{todayFajr | formatDate}} <br>
-     Sunrise: {{todaySunrise | formatDate}}<br>
-     Zuhr: {{todayZuhr | formatDate}}<br>
-     Sunset: {{todaySunset | formatDate}}<br>
-     Maghrib: {{todayMaghrib | formatDate}}
-     
-     
-     <h2>Next Event</h2>
-
-     {{nextEvent.title}}<br>
-     {{nextEvent.date}}<br>
-     {{nextEvent.description | formatDescription}}
-     
   </ion-content>
 </ion-view>
