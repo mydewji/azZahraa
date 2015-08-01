@@ -24,10 +24,12 @@ var app = angular.module('azZahraa.controllers', [])
 
 .filter('formatDescription', function() {
   return function(description) {
-    description = unescape(description);
-    description = angular.element(description).text();
-    description = description.replace(/\+/g, " ");
-    return description ;
+    if(description != "Could not fetch next event description") {
+      description = unescape(description);
+      description = angular.element(description).text();
+      description = description.replace(/\+/g, " ");
+    }
+   return description ;
   };
 })
 
@@ -40,22 +42,23 @@ var app = angular.module('azZahraa.controllers', [])
 .controller('AppCtrl', function($scope, $http) {
     $scope.today = new moment();
     
-    //Salaat times from SalaatTimes.js - TODO refactor SalaatTimes.js to not be horrible
+    //Salaat times from SalaatTimes.js - TODO refactor SalaatTimes.js to not be horrible (https://stackoverflow.com/questions/8228281/what-is-the-function-construct-in-javascript)
     $scope.todaySunrise = moment(window.todaysTimeRise);
     $scope.todayFajr = moment(window.todaysTimeFajr);
     $scope.todayZuhr = moment(window.todaysTimeZuhr);
     $scope.todaySunset = moment(window.todaysTimeSet);
     $scope.todayMaghrib = moment(window.todaysTimeMaghrib);
-    
-    
-    
+       
     //Salaat times helper TODO
     
- 
+    //set default nextEvent (title, date, description)
+   $scope.nextEvent = {title:"Could not fetch next event", date:"Could not fetch next event date", description:"Could not fetch next event description"}; 
    
+   //set default calendarOffset
+   $scope.calendarOffset = 0;
 
     // json url = "http://az-zahraa.org/GetEvents.asp"
-    url = "http://az-zahraa.org/GetEvents.asp"
+   url = "http://az-zahraa.org/GetEvents.asp"
     $http.get(url)
     .success(function(data) {
         $scope.events = data.events;
@@ -76,10 +79,11 @@ var app = angular.module('azZahraa.controllers', [])
              //console.log(data.events[i]);
              break;
           }       
-        }
-        
-       //Todays islamic date
-       $scope.todayIslamicDate = writeIslamicDate(-1);
+        }  
      });
+     
+     //Todays islamic date 
+     var islamicDateOffset = $scope.calendarOffset - 1;
+     $scope.todayIslamicDate = writeIslamicDate(islamicDateOffset);
 });
 
