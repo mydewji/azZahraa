@@ -2,11 +2,11 @@
   <ion-content>
    
      <h2>Date</h2>
-        {{today | date:'EEEE dd MMMM yyyy'}}
+        {{today | formatDate}}
         <br>
-        {{today | date:short}}
+        {{today}}
         <br>
-        Lunar Date HERE
+        Lunar Date: {{todayIslamicDate}}
         <br>
         The calendar offset is:
           <span ng-if="calendarOffset === 0">
@@ -15,24 +15,31 @@
          <!--{{calendarOffset}}-->
 
      <h2>Namaaz</h2>
+     Today Fajr: {{todayFajr | formatDate}} <br>
+     Today Sunrise: {{todaySunrise | formatDate}}<br>
+     Today Zuhr: {{todayZuhr | formatDate}}<br>
+     Today Sunset: {{todaySunset | formatDate}}<br>
+     Today Maghrib: {{todayMaghrib | formatDate}}
+     
      
      <h2>Next Event</h2>
      <!-- figure out how to get next event title here! (compare to current date?) -->
-     {{nextEvent.title}}
+     {{nextEvent.title}}<br>
+     {{nextEvent.date}}<br>
+     {{nextEvent.description | formatDescription}}
      
-     
-     
+   <!--  
      <h5>Test Data:</h5> 
 
      <li ng-repeat="event in events" >
-       <!--{{event.title}}-->
+       {{event.title}}
       
        
        <br>
        ORIG DATE: {{event.date}}<br>
-       {{event.date | castStringToDate | date:short }}
+       {{event.date | castStringToDate | formatDate }}
 
-    </li>
+    </li> -->
     
     
 
