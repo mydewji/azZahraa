@@ -1,5 +1,5 @@
 <ion-view view-title="Home">
-  <ion-content>
+  <ion-content >
     
     <!-- Date Card -->
     <div class="card">
@@ -11,37 +11,37 @@
           {{todayIslamicDate}}
       </div>  
     </div>
-    
+ 
     <!-- Namaaz Card -->
     <div class="list card">
       <div class="item item-divider">
         Today's Namaaz timings
       </div>
 
-      <a href="#" class="item item-icon-left">
+      <div class="item item-icon-left">
         <i class="icon ion-flame"></i>
         Fajr: {{todayFajr | getTime}}
-      </a>
+      </div>
       
-      <a href="#" class="item item-icon-left">
+      <div class="item item-icon-left">
         <i class="icon ion-android-sunny"></i>
         Sunrise: {{todaySunrise | getTime}}
-      </a>
+      </div>
       
-      <a href="#" class="item item-icon-left">
+      <div class="item item-icon-left">
         <i class="icon ion-flash"></i>
          Zuhr: {{todayZuhr | getTime}}
-      </a>
+      </div>
       
-      <a href="#" class="item item-icon-left">
+      <div class="item item-icon-left">
         <i class="icon ion-android-sunny"></i>
         Sunset: {{todaySunset | getTime}}
-      </a>
+      </div>
       
-      <a href="#" class="item item-icon-left">
+      <div class="item item-icon-left">
         <i class="icon ion-flash"></i>
         Maghrib: {{todayMaghrib | getTime}}
-      </a>
+      </div>
     </div>
 
   <!-- Next Event Card -->
@@ -50,20 +50,20 @@
          Next Event
       </div>
 
-      <a href="#" class="item item-icon-left">
+      <div class="item item-icon-left">
         <i class="icon ion-ios-calendar-outline"></i>
         {{nextEvent.title}}
-      </a>
+      </div>
       
-      <a href="#" class="item item-icon-left">
+      <div class="item item-icon-left">
         <i class="icon ion-ios-clock-outline"></i>
         {{nextEvent.date}}
-      </a>
+      </div>
       
-      <a href="#" class="item item-icon-left item-text-wrap">
+      <div class="item item-icon-left item-text-wrap">
         <i class="icon ion-edit"></i>
           {{nextEvent.description | formatDescription}}
-       </a>
+      </div>
       
      
     </div>
