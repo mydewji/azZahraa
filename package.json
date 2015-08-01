@@ -1,7 +1,7 @@
 {
   "name": "azzahraa",
   "version": "1.0.0",
-  "description": "azZahraa: An Ionic project",
+  "description": "azZahraa: An app for Az-Zahraa Islamic Centre built in ionic",
   "dependencies": {
     "gulp": "^3.5.6",
     "gulp-concat": "^2.2.0",
@@ -19,7 +19,8 @@
     "cordova-plugin-console",
     "cordova-plugin-whitelist",
     "cordova-plugin-splashscreen",
-    "com.ionic.keyboard"
+    "com.ionic.keyboard",
+    "cordova-plugin-statusbar"
   ],
   "cordovaPlatforms": [
     "ios",
