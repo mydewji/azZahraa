@@ -8,16 +8,16 @@ var app = angular.module('azZahraa.controllers', [])
   };
 })
 
-.filter('formatDate', function() {
+.filter('formatNextEventDate', function() {
   return function(stringDate) {
-    var stringDateFormatted = stringDate.format("D/M/YYYY");
+    var stringDateFormatted = moment(stringDate, "D/M/yyyy h:mm:ss A").format('dddd MMMM Do h:mm a')
     return stringDateFormatted;
   };
 })
 
 .filter('getTime', function() {
-  return function(stringDate) {
-    var stringDateFormatted = stringDate.format("h:mm a");
+  return function(momentDate) {
+    var stringDateFormatted = momentDate.format("h:mm a");
     return stringDateFormatted;
   };
 })
@@ -58,7 +58,7 @@ var app = angular.module('azZahraa.controllers', [])
    $scope.calendarOffset = 0;
 
     // json url = "http://az-zahraa.org/GetEvents.asp"
-   url = "http://az-zahraa.org/GetEvents.asp"
+    url = "http://az-zahraa.org/GetEvents.asp"
     $http.get(url)
     .success(function(data) {
         $scope.events = data.events;
