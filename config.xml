@@ -15,7 +15,7 @@
   <preference name="android-minSdkVersion" value="16"/>
   <preference name="BackupWebStorage" value="none"/>
   <preference name="SplashScreen" value="screen"/>
-  <preference name="SplashScreenDelay" value="1000"/>
+  <preference name="SplashScreenDelay" value="0"/>
   <preference name="StatusBarBackgroundColor" value="#009900"/>
   <feature name="StatusBar">
     <param name="ios-package" value="CDVStatusBar" onload="true"/>
