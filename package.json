@@ -23,6 +23,10 @@
     {
       "locator": "https://github.com/apache/cordova-plugin-statusbar.git",
       "id": "cordova-plugin-statusbar"
+    },
+    {
+      "locator": "https://git-wip-us.apache.org/repos/asf/cordova-plugin-inappbrowser.git",
+      "id": "cordova-plugin-inappbrowser"
     }
   ],
   "cordovaPlatforms": [
