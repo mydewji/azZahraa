@@ -1,1 +1,17 @@
-README
+--- Getting Started: 
+
+Step 0: Clone this repostory and download to your local machine
+
+Step 1: Install ionic
+* Install node.js (https://nodejs.org/)
+* Open up a console/terminal and run 'npm install -g install cordova ionic' 
+
+Step 2: Install gulp by running 'npm install -g gulp' in a console/terminal
+
+Step 3: Navigate to the cloned repository you downloaded in Step 0 and run 'ionic serve'
+
+--- Notes:
+To run on a device follow ionic instructions here: http://ionicframework.com/docs/guide/testing.html
+
+
+
