@@ -43,6 +43,7 @@ var app = angular.module('azZahraa.controllers', [])
     $scope.today = new moment();
     
     //Salaat times from SalaatTimes.js - TODO refactor SalaatTimes.js to not be horrible (https://stackoverflow.com/questions/8228281/what-is-the-function-construct-in-javascript)
+    $scope.todayImsaac = moment(window.todaysTimeImsaac);
     $scope.todaySunrise = moment(window.todaysTimeRise);
     $scope.todayFajr = moment(window.todaysTimeFajr);
     $scope.todayZuhr = moment(window.todaysTimeZuhr);
