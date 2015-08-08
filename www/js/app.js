@@ -3,7 +3,7 @@
 // 'azZahraa' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'azZahraa.controllers' is found in controllers.js
-angular.module('azZahraa', [ 'ionic', 'azZahraa.controllers'])
+angular.module('azZahraa', [ 'ionic', 'azZahraa.controllers', 'ionic.contrib.drawer'])
 
 
 
@@ -26,6 +26,12 @@ angular.module('azZahraa', [ 'ionic', 'azZahraa.controllers'])
 })
 
 .config(function($stateProvider, $urlRouterProvider) {
+  
+  //code to allow for ios/android menu switch -TODO implement
+  // var isAndroid = ionic.Platform.isAndroid();
+  // var menuTemplateUrl = (isAndroid) ? 'templates/menu-android.html' : 'templates/menu-ios.html';
+  
+  
   $stateProvider
 
     .state('app', {
