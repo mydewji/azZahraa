@@ -6,10 +6,19 @@
       &:before,
       &.icon-left:before,
       &.icon-right:before {
-        font-size: 24px;
+        font-size: 22px;
       }
     }
   }
+
+  .back-text {
+    font-size: 15px;
+  }
+
+  .title {
+    font-size: 18px;
+  }
+
 }
 
 .has-header.has-tabs-top {

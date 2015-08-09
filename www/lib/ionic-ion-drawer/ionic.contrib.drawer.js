@@ -27,7 +27,7 @@ angular.module('ionic.contrib.drawer', ['ionic'])
   var isTargetDrag = false;
 
   var side = $attr.side === SIDE_LEFT ? SIDE_LEFT : SIDE_RIGHT;
-  var width = el.clientWidth;
+  var width = el.clientWidth * .85;
   var docWidth = $document[0].body.clientWidth;
   console.log(docWidth)
   
@@ -47,7 +47,7 @@ angular.module('ionic.contrib.drawer', ['ionic'])
   var toggleOverlay = function(state) {
     if (overlayState !== state) {
       ionic.requestAnimationFrame(function() {
-        var translateX = state === STATE_CLOSE ? '-100' : '0';
+        var translateX = state === STATE_CLOSE ? '-85' : '0';
         overlayEl.style[ionic.CSS.TRANSFORM] = 'translate3d(' + translateX + '%, 0, 0)';
       });
       overlayState = state;
