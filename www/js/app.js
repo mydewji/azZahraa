@@ -37,7 +37,7 @@ angular.module('azZahraa', [ 'ionic', 'azZahraa.controllers', 'ionic.contrib.dra
     .state('app', {
     url: '/app',
     abstract: true,
-    templateUrl: 'templates/menu.html',
+    templateUrl: 'templates/menu-android.html',
     controller: 'AppCtrl'
   })
 
