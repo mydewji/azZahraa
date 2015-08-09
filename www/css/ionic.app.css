@@ -7708,10 +7708,6 @@ a.button {
     font-weight: 500;
     text-transform: uppercase;
     max-width: none; }
-  .platform-android .tabs-top.tabs-striped .tab-item {
-    transition: background 0.1s; }
-    .platform-android .tabs-top.tabs-striped .tab-item:active {
-      background: #008f00; }
   .platform-android .bar {
     padding: 11px;
     height: 56px; }
@@ -7722,7 +7718,7 @@ a.button {
     .platform-android .bar .title {
       height: 56px;
       line-height: 56px;
-      font-family: 'sans-serif-medium', 'Roboto', 'sans-serif';
+      font-family: 'sans-serif-bold', 'Roboto', 'sans-serif';
       font-weight: 500;
       font-size: 20px; }
     .platform-android .bar .title + .buttons {
@@ -7730,7 +7726,7 @@ a.button {
       bottom: 7px; }
   .platform-android .item-divider {
     font-family: 'sans-serif-medium', 'Roboto', 'sans-serif';
-    font-size: 14px;
+    font-size: 15px;
     font-weight: 500;
     color: #757575; }
   .platform-android .item-divider + .item {
@@ -7782,7 +7778,7 @@ a.button {
   .platform-android .drawer-header {
     width: 100%;
     height: 190px;
-    background: #008f00;
+    background: #009900;
     margin-bottom: 10px; }
 
 .platform-ios .bar .button {
