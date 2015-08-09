@@ -7699,19 +7699,14 @@ a.button {
     top: 56px; }
   .platform-android .tabs-top > .tabs {
     box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.25);
-    border-color: #009900;
-    padding-top: 3px; }
+    border-color: #009900; }
   .platform-android .has-header.has-tabs-top {
     top: 105px; }
   .platform-android .tab-item {
     font-family: 'sans-serif-bold', 'Roboto', 'sans-serif';
-    font-weight: 500;
+    font-weight: 700;
     text-transform: uppercase;
     max-width: none; }
-  .platform-android .tabs-top.tabs-striped .tab-item {
-    transition: background 0.1s; }
-    .platform-android .tabs-top.tabs-striped .tab-item:active {
-      background: green; }
   .platform-android .bar {
     padding: 11px;
     height: 56px; }
@@ -7738,8 +7733,7 @@ a.button {
   .platform-android drawer {
     width: 100vw;
     background: none;
-    box-shadow: none;
-    pointer-events: none; }
+    box-shadow: none; }
     .platform-android drawer > *:first-child {
       width: 85%;
       background: #fff; }
@@ -7750,13 +7744,10 @@ a.button {
     .platform-android drawer hr {
       border-top: 1px solid #eaeaea;
       border-bottom: 0; }
-    .platform-android drawer.open {
-      box-shadow: none;
-      pointer-events: auto; }
-      .platform-android drawer.open > *:first-child {
-        box-shadow: 1px 0px 10px rgba(0, 0, 0, 0.3); }
-  .platform-android .drawer-overlay {
-    pointer-events: none; }
+  .platform-android drawer.open {
+    box-shadow: none; }
+    .platform-android drawer.open > *:first-child {
+      box-shadow: 1px 0px 10px rgba(0, 0, 0, 0.3); }
   .platform-android drawer .item {
     font-size: 15px;
     font-family: 'sans-serif-medium', 'Roboto', 'sans-serif';
@@ -7779,24 +7770,20 @@ a.button {
         position: absolute;
         bottom: -6px; }
   .platform-android drawer.animate {
-    transition: transform 0.25s cubic-bezier(0.87, 0.005, 0.545, 1);
-    -webkit-transition: transform 0.25s cubic-bezier(0.87, 0.005, 0.545, 1); }
+    transition: transform 0.2s cubic-bezier(0.87, 0.005, 0.545, 1);
+    -webkit-transition: transform 0.2s cubic-bezier(0.87, 0.005, 0.545, 1); }
   .platform-android .list {
     padding-top: 0; }
   .platform-android .drawer-header {
     width: 100%;
     height: 190px;
-    background: #008f00;
+    background: #009900;
     margin-bottom: 10px; }
 
 .platform-ios .bar .button {
   width: 34px; }
   .platform-ios .bar .button.button-icon .icon:before, .platform-ios .bar .button.button-icon:before, .platform-ios .bar .button.button-icon.icon-left:before, .platform-ios .bar .button.button-icon.icon-right:before {
-    font-size: 22px; }
-.platform-ios .bar .back-text {
-  font-size: 15px; }
-.platform-ios .bar .title {
-  font-size: 18px; }
+    font-size: 24px; }
 .platform-ios .has-header.has-tabs-top {
   top: 93px; }
 

@@ -20,19 +20,11 @@ drawer {
     border-top: 1px solid #eaeaea;
     border-bottom: 0;
   }
-
-  pointer-events: none;
-
-  &.open {
-    box-shadow: none;
-    & > *:first-child {  box-shadow: 1px 0px 10px rgba(0,0,0,0.3);  }
-    pointer-events: auto;
-  }
-
 }
 
-.drawer-overlay {
-  pointer-events: none;
+drawer.open {
+  box-shadow: none;
+  & > *:first-child {  box-shadow: 1px 0px 10px rgba(0,0,0,0.3);  }
 }
 
 drawer .item {
@@ -67,8 +59,8 @@ drawer .item {
 }
 
 drawer.animate {
-  transition: transform 0.25s cubic-bezier(0.870, 0.005, 0.545, 1.000);
-  -webkit-transition: transform 0.25s cubic-bezier(0.870, 0.005, 0.545, 1.000);
+  transition: transform 0.2s cubic-bezier(0.870, 0.005, 0.545, 1.000);
+  -webkit-transition: transform 0.2s cubic-bezier(0.870, 0.005, 0.545, 1.000);
 }
   .list {
     padding-top: 0;
