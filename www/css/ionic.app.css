@@ -7703,6 +7703,10 @@ a.button {
     padding-top: 3px; }
   .platform-android .has-header.has-tabs-top {
     top: 105px; }
+  .platform-android .tabs-top.tabs-striped .tab-item {
+    transition: background 0.1s; }
+    .platform-android .tabs-top.tabs-striped .tab-item:active {
+      background: green; }
   .platform-android .tab-item {
     font-family: 'sans-serif-bold', 'Roboto', 'sans-serif';
     font-weight: 500;

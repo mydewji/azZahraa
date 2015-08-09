@@ -14,6 +14,13 @@
   top: $android-bar-height + 49px;
 }
 
+.tabs-top.tabs-striped .tab-item {
+  transition: background 0.1s;
+  &:active {
+    background: darken($positive, 5%);
+  }
+}
+
 .tab-item {
   font-family: $roboto-bold;
   font-weight: 500;
