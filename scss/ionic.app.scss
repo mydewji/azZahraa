@@ -17,6 +17,8 @@ $dark:                            #444 !default;
 
 //change positive to az-zahraa green
 $positive:                        #009900 !default;
+$positive-dark:                   #025A4D !default; //Changes android drawer color!
+
 
 // The path for our ionicons font files, relative to the built CSS in www/css
 $ionicons-font-path: "../lib/ionic/fonts" !default;
@@ -24,3 +26,6 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
 
+@import "partials/android";
+@import "partials/ios";
+@import "partials/common";
