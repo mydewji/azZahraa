@@ -28,8 +28,8 @@ angular.module('azZahraa', [ 'ionic', 'azZahraa.controllers', 'ionic.contrib.dra
 .config(function($stateProvider, $urlRouterProvider) {
   
   //code to allow for ios/android menu switch -TODO implement
-  // var isAndroid = ionic.Platform.isAndroid();
-  // var menuTemplateUrl = (isAndroid) ? 'templates/menu-android.html' : 'templates/menu-ios.html';
+   var isAndroid = ionic.Platform.isAndroid();
+   var menuTemplateUrl = (isAndroid) ? 'templates/menu-android.html' : 'templates/menu-ios.html';
   
   
   $stateProvider
@@ -37,7 +37,7 @@ angular.module('azZahraa', [ 'ionic', 'azZahraa.controllers', 'ionic.contrib.dra
     .state('app', {
     url: '/app',
     abstract: true,
-    templateUrl: 'templates/menu-android.html',
+    templateUrl: menuTemplateUrl,
     controller: 'AppCtrl'
   })
 
@@ -45,6 +45,9 @@ angular.module('azZahraa', [ 'ionic', 'azZahraa.controllers', 'ionic.contrib.dra
     url: '/home',
     views: {
       'menuContent': {
+        templateUrl: 'templates/home.html'
+      },
+      'ios-tab-home': {
         templateUrl: 'templates/home.html'
       }
     }
@@ -55,6 +58,9 @@ angular.module('azZahraa', [ 'ionic', 'azZahraa.controllers', 'ionic.contrib.dra
       views: {
         'menuContent': {
           templateUrl: 'templates/events.html'
+        },
+        'ios-tab-events': {
+          templateUrl: 'templates/events.html'
         }
       }
     })
@@ -63,7 +69,10 @@ angular.module('azZahraa', [ 'ionic', 'azZahraa.controllers', 'ionic.contrib.dra
       url: '/namaaz',
       views: {
         'menuContent': {
-          templateUrl: 'templates/namaaz.html',
+          templateUrl: 'templates/namaaz.html'
+        },
+        'ios-tab-namaaz': {
+          templateUrl: 'templates/namaaz.html'
         }
       }
     })
@@ -72,7 +81,10 @@ angular.module('azZahraa', [ 'ionic', 'azZahraa.controllers', 'ionic.contrib.dra
       url: '/about',
       views: {
         'menuContent': {
-          templateUrl: 'templates/about.html',
+          templateUrl: 'templates/about.html'
+        },
+        'ios-tab-about': {
+          templateUrl: 'templates/about.html'
         }
       }
     });
