@@ -18,7 +18,7 @@ angular.module('azZahraa', [ 'ionic', 'azZahraa.controllers', 'ionic.contrib.dra
     }
     if (window.StatusBar) {
       // org.apache.cordova.statusbar required
-      StatusBar.styleDefault();
+      StatusBar.styleLightContent();
     }
   });
   

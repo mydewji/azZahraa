@@ -1,7 +1,7 @@
 @import 'variables';
 
 .has-header, .tabs-top > .tabs {
-  top: $android-bar-height;
+  top: $header-bar-height;
 }
 
 .tabs-top > .tabs {
@@ -11,7 +11,14 @@
 }
 
 .has-header.has-tabs-top {
-  top: $android-bar-height + 49px;
+  top: $header-bar-height + $tabs-top-height;
+}
+
+.tab-item {
+  font-family: $roboto-bold;
+  font-weight: 700;
+  text-transform: uppercase;
+  max-width: none;
 }
 
 .tabs-top.tabs-striped .tab-item {
@@ -21,16 +28,9 @@
   }
 }
 
-.tab-item {
-  font-family: $roboto-bold;
-  font-weight: 500;
-  text-transform: uppercase;
-  max-width: none;
-}
-
 .bar {
   padding: 11px;
-  height: $android-bar-height;
+  height: $header-bar-height;
 
   .button {
     width: 34px;
@@ -39,15 +39,15 @@
       &:before,
       &.icon-left:before,
       &.icon-right:before {
-        font-size: 22px;
+        font-size: 24px;
       }
     }
   }
 
   .title {
-    height: $android-bar-height;
-    line-height: $android-bar-height;
-    font-family: $roboto-bold;
+    height: $header-bar-height;
+    line-height: $header-bar-height;
+    font-family: $roboto-medium;
     font-weight: 500;
     font-size: 20px;
   }

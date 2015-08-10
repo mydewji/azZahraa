@@ -7789,12 +7789,6 @@ a.button {
   width: 34px; }
   .platform-ios .bar .button.button-icon .icon:before, .platform-ios .bar .button.button-icon:before, .platform-ios .bar .button.button-icon.icon-left:before, .platform-ios .bar .button.button-icon.icon-right:before {
     font-size: 22px; }
-.platform-ios .bar .back-text {
-  font-size: 15px; }
-.platform-ios .bar .title {
-  font-size: 18px; }
-.platform-ios .has-header.has-tabs-top {
-  top: 93px; }
 
 .tab-item {
   font-family: inherit;
