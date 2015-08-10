@@ -7718,7 +7718,7 @@ a.button {
     .platform-android .bar .button {
       width: 34px; }
       .platform-android .bar .button.button-icon .icon:before, .platform-android .bar .button.button-icon:before, .platform-android .bar .button.button-icon.icon-left:before, .platform-android .bar .button.button-icon.icon-right:before {
-        font-size: 24px; }
+        font-size: 22px; }
     .platform-android .bar .title {
       height: 56px;
       line-height: 56px;
@@ -7775,8 +7775,8 @@ a.button {
         position: absolute;
         bottom: -6px; }
   .platform-android drawer.animate {
-    transition: transform 0.2s cubic-bezier(0.87, 0.005, 0.545, 1);
-    -webkit-transition: transform 0.2s cubic-bezier(0.87, 0.005, 0.545, 1); }
+    transition: transform 0.25s cubic-bezier(0.87, 0.005, 0.545, 1);
+    -webkit-transition: transform 0.25s cubic-bezier(0.87, 0.005, 0.545, 1); }
   .platform-android .list {
     padding-top: 0; }
   .platform-android .drawer-header {
