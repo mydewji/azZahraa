@@ -60,7 +60,7 @@ angular.module('ionic.contrib.drawer', ['ionic'])
         };
 
         if (delay) {
-          setTimeout(setStyle, 250);
+          setTimeout(setStyle, 300);
         } else {
           setStyle();
         }
