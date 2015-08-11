@@ -1,0 +1,14 @@
+.bar {
+  .button {
+    width: 34px;
+    &.button-icon {
+      .icon:before,
+      &:before,
+      &.icon-left:before,
+      &.icon-right:before {
+        font-size: 22px;
+      }
+    }
+  }
+}
+

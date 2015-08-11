@@ -1,0 +1,28 @@
+@import "variables";
+
+// remove the 20px padding for status bar in landscape, since the status bar is hidden in landscape in iOS7+
+@media (orientation:landscape) {
+  .platform-ios.platform-cordova:not(.fullscreen) {
+    .bar-header:not(.bar-subheader) {
+      height: $header-bar-height;
+
+      &.item-input-insert .item-input-wrapper { margin-top: 0px !important; }
+      & > * {  margin-top: 0;  }
+    }
+    .tabs-top > .tabs, .tabs.tabs-top {
+      top: $header-bar-height;
+    }
+    .has-header, .bar-subheader {
+      top: $header-bar-height;
+    }
+    .has-subheader {
+      top: $header-bar-height + $subheader-height;
+    }
+    .has-header.has-tabs-top {
+      top: $header-bar-height + $tabs-top-height;
+    }
+    .has-header.has-subheader.has-tabs-top {
+      top: $header-bar-height + $subheader-height + $tabs-top-height;
+    }
+  }
+}

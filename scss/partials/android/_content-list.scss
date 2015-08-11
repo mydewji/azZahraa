@@ -1,0 +1,12 @@
+@import 'variables';
+
+.item-divider {
+  font-family: $roboto-medium;
+  font-size: 15px;
+  font-weight: 500;
+  color: #757575;
+}
+
+.item-divider + .item {
+  box-shadow: 0 -1px 2px rgba(0,0,0,0.07);
+}

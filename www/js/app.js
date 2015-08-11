@@ -3,7 +3,7 @@
 // 'azZahraa' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'azZahraa.controllers' is found in controllers.js
-angular.module('azZahraa', [ 'ionic', 'azZahraa.controllers'])
+angular.module('azZahraa', [ 'ionic', 'azZahraa.controllers', 'ionic.contrib.drawer'])
 
 
 
@@ -18,7 +18,7 @@ angular.module('azZahraa', [ 'ionic', 'azZahraa.controllers'])
     }
     if (window.StatusBar) {
       // org.apache.cordova.statusbar required
-      StatusBar.styleDefault();
+      StatusBar.styleLightContent();
     }
   });
   
@@ -26,12 +26,18 @@ angular.module('azZahraa', [ 'ionic', 'azZahraa.controllers'])
 })
 
 .config(function($stateProvider, $urlRouterProvider) {
+  
+  //code to allow for ios/android menu switch -TODO implement
+   var isAndroid = ionic.Platform.isAndroid();
+   var menuTemplateUrl = (isAndroid) ? 'templates/menu-android.html' : 'templates/menu-ios.html';
+  
+  
   $stateProvider
 
     .state('app', {
     url: '/app',
     abstract: true,
-    templateUrl: 'templates/menu.html',
+    templateUrl: menuTemplateUrl,
     controller: 'AppCtrl'
   })
 
@@ -39,6 +45,9 @@ angular.module('azZahraa', [ 'ionic', 'azZahraa.controllers'])
     url: '/home',
     views: {
       'menuContent': {
+        templateUrl: 'templates/home.html'
+      },
+      'ios-tab-home': {
         templateUrl: 'templates/home.html'
       }
     }
@@ -49,6 +58,9 @@ angular.module('azZahraa', [ 'ionic', 'azZahraa.controllers'])
       views: {
         'menuContent': {
           templateUrl: 'templates/events.html'
+        },
+        'ios-tab-events': {
+          templateUrl: 'templates/events.html'
         }
       }
     })
@@ -57,7 +69,10 @@ angular.module('azZahraa', [ 'ionic', 'azZahraa.controllers'])
       url: '/namaaz',
       views: {
         'menuContent': {
-          templateUrl: 'templates/namaaz.html',
+          templateUrl: 'templates/namaaz.html'
+        },
+        'ios-tab-namaaz': {
+          templateUrl: 'templates/namaaz.html'
         }
       }
     })
@@ -66,7 +81,10 @@ angular.module('azZahraa', [ 'ionic', 'azZahraa.controllers'])
       url: '/about',
       views: {
         'menuContent': {
-          templateUrl: 'templates/about.html',
+          templateUrl: 'templates/about.html'
+        },
+        'ios-tab-about': {
+          templateUrl: 'templates/about.html'
         }
       }
     });
