@@ -19,13 +19,6 @@ angular.module('azZahraa', [ 'ionic', 'azZahraa.controllers', 'ionic.contrib.dra
     if (window.StatusBar) {
       // org.apache.cordova.statusbar required
       StatusBar.styleLightContent();
-      //hide statusbar in android so it doesn't clash with drawer
-      if (ionic.Platform.isAndroid()) {
-        StatusBar.hide();
-      }
-
-      //Set statusbar color to green (Doing this here so it doesn't clash with the splashscreen/app loading!)
-      StatusBar.backgroundColorByHexString("#009900");
     }
   });
   
