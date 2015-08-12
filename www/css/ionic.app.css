@@ -7703,26 +7703,26 @@ a.button {
     padding-top: 3px; }
   .platform-android .has-header.has-tabs-top {
     top: 105px; }
+  .platform-android .tab-item {
+    font-family: 'sans-serif-bold', 'Roboto', 'sans-serif';
+    font-weight: 700;
+    text-transform: uppercase;
+    max-width: none; }
   .platform-android .tabs-top.tabs-striped .tab-item {
     transition: background 0.1s; }
     .platform-android .tabs-top.tabs-striped .tab-item:active {
       background: green; }
-  .platform-android .tab-item {
-    font-family: 'sans-serif-bold', 'Roboto', 'sans-serif';
-    font-weight: 500;
-    text-transform: uppercase;
-    max-width: none; }
   .platform-android .bar {
     padding: 11px;
     height: 56px; }
     .platform-android .bar .button {
       width: 34px; }
       .platform-android .bar .button.button-icon .icon:before, .platform-android .bar .button.button-icon:before, .platform-android .bar .button.button-icon.icon-left:before, .platform-android .bar .button.button-icon.icon-right:before {
-        font-size: 22px; }
+        font-size: 24px; }
     .platform-android .bar .title {
       height: 56px;
       line-height: 56px;
-      font-family: 'sans-serif-bold', 'Roboto', 'sans-serif';
+      font-family: 'sans-serif-medium', 'Roboto', 'sans-serif';
       font-weight: 500;
       font-size: 20px; }
     .platform-android .bar .title + .buttons {
@@ -7749,10 +7749,13 @@ a.button {
     .platform-android drawer hr {
       border-top: 1px solid #eaeaea;
       border-bottom: 0; }
-  .platform-android drawer.open {
-    box-shadow: none; }
-    .platform-android drawer.open > *:first-child {
-      box-shadow: 1px 0px 10px rgba(0, 0, 0, 0.3); }
+    .platform-android drawer.open {
+      box-shadow: none;
+      pointer-events: auto; }
+      .platform-android drawer.open > *:first-child {
+        box-shadow: 1px 0px 10px rgba(0, 0, 0, 0.3); }
+  .platform-android .drawer-overlay {
+    pointer-events: none; }
   .platform-android drawer .item {
     font-size: 15px;
     font-family: 'sans-serif-medium', 'Roboto', 'sans-serif';
@@ -7775,14 +7778,17 @@ a.button {
         position: absolute;
         bottom: -6px; }
   .platform-android drawer.animate {
-    transition: transform 0.25s cubic-bezier(0.87, 0.005, 0.545, 1);
-    -webkit-transition: transform 0.25s cubic-bezier(0.87, 0.005, 0.545, 1); }
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    -webkit-transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1); }
+    .platform-android drawer.animate.open {
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      -webkit-transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1); }
   .platform-android .list {
     padding-top: 0; }
   .platform-android .drawer-header {
     width: 100%;
     height: 190px;
-    background: #009900;
+    background: #2d5d9d;
     margin-bottom: 10px; }
 
 .platform-ios .bar .button {
@@ -7790,10 +7796,20 @@ a.button {
   .platform-ios .bar .button.button-icon .icon:before, .platform-ios .bar .button.button-icon:before, .platform-ios .bar .button.button-icon.icon-left:before, .platform-ios .bar .button.button-icon.icon-right:before {
     font-size: 22px; }
 
-.tab-item {
-  font-family: inherit;
-  font-weight: 500;
-  max-width: none; }
-
-.tabs-top.tabs-striped .tab-item.tab-item-active, .tabs-top.tabs-striped .tab-item.activated {
-  border: 0 solid #fff; }
+@media (orientation: landscape) {
+  .platform-ios.platform-cordova:not(.fullscreen) .bar-header:not(.bar-subheader) {
+    height: 44px; }
+    .platform-ios.platform-cordova:not(.fullscreen) .bar-header:not(.bar-subheader).item-input-insert .item-input-wrapper {
+      margin-top: 0px !important; }
+    .platform-ios.platform-cordova:not(.fullscreen) .bar-header:not(.bar-subheader) > * {
+      margin-top: 0; }
+  .platform-ios.platform-cordova:not(.fullscreen) .tabs-top > .tabs, .platform-ios.platform-cordova:not(.fullscreen) .tabs.tabs-top {
+    top: 44px; }
+  .platform-ios.platform-cordova:not(.fullscreen) .has-header, .platform-ios.platform-cordova:not(.fullscreen) .bar-subheader {
+    top: 44px; }
+  .platform-ios.platform-cordova:not(.fullscreen) .has-subheader {
+    top: 88px; }
+  .platform-ios.platform-cordova:not(.fullscreen) .has-header.has-tabs-top {
+    top: 93px; }
+  .platform-ios.platform-cordova:not(.fullscreen) .has-header.has-subheader.has-tabs-top {
+    top: 137px; } }

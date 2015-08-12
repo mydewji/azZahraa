@@ -21,8 +21,6 @@ drawer {
     border-bottom: 0;
   }
 
-  pointer-events: none;
-
   &.open {
     box-shadow: none;
     & > *:first-child {  box-shadow: 1px 0px 10px rgba(0,0,0,0.3);  }
@@ -34,7 +32,7 @@ drawer {
   pointer-events: none;
 }
 
-drawer.item {
+drawer .item {
   font-size: 15px;
   font-family: $roboto-medium;
   font-weight: 500;
