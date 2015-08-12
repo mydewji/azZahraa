@@ -7749,11 +7749,6 @@ a.button {
     .platform-android drawer hr {
       border-top: 1px solid #eaeaea;
       border-bottom: 0; }
-    .platform-android drawer.open {
-      box-shadow: none;
-      pointer-events: auto; }
-      .platform-android drawer.open > *:first-child {
-        box-shadow: 1px 0px 10px rgba(0, 0, 0, 0.3); }
   .platform-android .drawer-overlay {
     pointer-events: none; }
   .platform-android drawer .item {
