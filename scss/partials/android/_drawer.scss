@@ -1,38 +1,5 @@
 @import 'variables';
 
-drawer {
-  width: 100vw;
-  background: none;
-  box-shadow: none;
-
-  & > *:first-child {
-    width: 85%;
-    background: #fff;
-  }
-
-  .empty-region {
-    width: 15%;
-    height: 100%;
-    float: right;
-  }
-
-  hr {
-    border-top: 1px solid #eaeaea;
-    border-bottom: 0;
-  }
-
-  pointer-events: none;
-
-  &.open {
-    box-shadow: none;
-    & > *:first-child {  box-shadow: 1px 0px 10px rgba(0,0,0,0.3);  }
-    pointer-events: auto;
-  }
-}
-
-.drawer-overlay {
-  pointer-events: none;
-}
 
 drawer .item {
   font-size: 15px;
@@ -66,13 +33,10 @@ drawer .item {
 }
 
 drawer.animate {
-  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  -webkit-transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1.000);
+  transition: transform 0.4s ease-in-out;
+  -webkit-transition: -webkit-transform 0.4s ease-in-out;
 
-  &.open {
-    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-    -webkit-transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1.000);
-  }
+
 }
 .list {
   padding-top: 0;
