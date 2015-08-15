@@ -66,13 +66,8 @@ drawer .item {
 }
 
 drawer.animate {
-  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  -webkit-transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1.000);
-
-  &.open {
-    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-    -webkit-transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1.000);
-  }
+  transition: transform 0.4s ease-in-out;
+  -webkit-transition: -webkit-transform 0.4s ease-in-out;
 }
 .list {
   padding-top: 0;
