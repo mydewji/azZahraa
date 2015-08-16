@@ -7,7 +7,7 @@
     "url": "git://github.com/mydewji/azZahraa"
   },
   "license":{
-    "type": "Attribution-NoDerivatives 4.0 International"
+    "type": "Attribution-NoDerivatives 4.0 International",
     "url":  "https://creativecommons.org/licenses/by-nd/4.0/"
   },
   "dependencies": {
