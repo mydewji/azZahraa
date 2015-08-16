@@ -2,6 +2,10 @@
   "name": "azzahraa",
   "version": "1.0.0",
   "description": "azZahraa: An app for Az-Zahraa Islamic Centre built in ionic",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/mydewji/azZahraa"
+  },
   "dependencies": {
     "gulp": "^3.5.6",
     "gulp-concat": "^2.2.0",
