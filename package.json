@@ -6,6 +6,10 @@
     "type": "git",
     "url": "git://github.com/mydewji/azZahraa"
   },
+  "license":{
+    "type": "Attribution-NoDerivatives 4.0 International"
+    "url":  "https://creativecommons.org/licenses/by-nd/4.0/"
+  },
   "dependencies": {
     "gulp": "^3.5.6",
     "gulp-concat": "^2.2.0",
