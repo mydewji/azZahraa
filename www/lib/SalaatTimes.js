@@ -1,14 +1,13 @@
-<!--*****DO NOT MODIFY THE FOLLOWING 5 lines -->		
-			todaysTimeFajr = new Date(); 
-			todaysTimeRise = new Date(); 
-			todaysTimeZuhr = new Date(); 
-			todaysTimeSet = new Date(); 
-			todaysTimeMaghrib = new Date(); 
-<!--*****Step 1**** Change the DAY-->	
+<!--*****DO NOT MODIFY THE FOLLOWING 5 lines -->
+todaysTimeFajr = new Date();
+todaysTimeRise = new Date();
+todaysTimeZuhr = new Date();
+todaysTimeSet = new Date();
+todaysTimeMaghrib = new Date();
+<!--*****Step 1**** Change the DAY-->
 
-function makeArray() 
-{ 
-	for (i = 0; i<makeArray.arguments.length; i++) this[i + 1] = makeArray.arguments[i]; 
+function makeArray() {
+    for (i = 0; i < makeArray.arguments.length; i++) this[i + 1] = makeArray.arguments[i];
 }
 
 var currentMonthImsaacTimings;
@@ -19,8 +18,8 @@ var currentMonthSunsetTimings;
 var currentMonthMaghribTimings;
 var currentMonth;
 
-var months = new makeArray('January','February','March','April','May','June','July','August','September','October','November','December');
-var days = new makeArray('Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday');
+var months = new makeArray('January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December');
+var days = new makeArray('Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday');
 
 var january_imsaac = new makeArray('6:22', '6:22', '6:22', '6:22', '6:22', '6:22', '6:22', '6:22', '6:21', '6:21', '6:21', '6:21', '6:20', '6:20', '6:19', '6:18', '6:18', '6:17', '6:17', '6:16', '6:15', '6:15', '6:14', '6:13', '6:12', '6:11', '6:10', '6:09', '6:08', '6:07', '6:06');
 var february_imsaac = new makeArray('6:06', '6:05', '6:04', '6:02', '6:01', '5:59', '5:58', '5:57', '5:55', '5:54', '5:53', '5:51', '5:50', '5:49', '5:47', '5:45', '5:43', '5:42', '5:40', '5:38', '5:37', '5:35', '5:33', '5:31', '5:30', '5:27', '5:25', '5:24', '5:22', '5:20');
@@ -108,120 +107,108 @@ var day = days[currentTime.getDay()];
 theDay = day;
 currentMonth = (currentTime.getMonth()) + 1;
 
-if (parseInt(currentMonth) == 1)
-{
-	currentMonthImsaacTimings	= january_imsaac;
-	currentMonthFajrTimings		= january_fajr;  
-	currentMonthSunriseTimings	= january_sunrise;
-	currentMonthZuhrTimings		= january_zuhr;  
-	currentMonthSunsetTimings	= january_sunset;
-	currentMonthMaghribTimings	= january_maghrib;													
+if (parseInt(currentMonth) == 1) {
+    currentMonthImsaacTimings = january_imsaac;
+    currentMonthFajrTimings = january_fajr;
+    currentMonthSunriseTimings = january_sunrise;
+    currentMonthZuhrTimings = january_zuhr;
+    currentMonthSunsetTimings = january_sunset;
+    currentMonthMaghribTimings = january_maghrib;
 }
-else if (parseInt(currentMonth) == 2)
-{
-	currentMonthImsaacTimings	= february_imsaac;
-	currentMonthFajrTimings		= february_fajr;  
-	currentMonthSunriseTimings	= february_sunrise;
-	currentMonthZuhrTimings		= february_zuhr;  
-	currentMonthSunsetTimings	= february_sunset;
-	currentMonthMaghribTimings	= february_maghrib;
+else if (parseInt(currentMonth) == 2) {
+    currentMonthImsaacTimings = february_imsaac;
+    currentMonthFajrTimings = february_fajr;
+    currentMonthSunriseTimings = february_sunrise;
+    currentMonthZuhrTimings = february_zuhr;
+    currentMonthSunsetTimings = february_sunset;
+    currentMonthMaghribTimings = february_maghrib;
 }
-else if (parseInt(currentMonth) == 3)
-{
-	currentMonthImsaacTimings	= march_imsaac;
-	currentMonthFajrTimings		= march_fajr;  
-	currentMonthSunriseTimings	= march_sunrise;
-	currentMonthZuhrTimings		= march_zuhr;  
-	currentMonthSunsetTimings	= march_sunset;
-	currentMonthMaghribTimings	= march_maghrib;
+else if (parseInt(currentMonth) == 3) {
+    currentMonthImsaacTimings = march_imsaac;
+    currentMonthFajrTimings = march_fajr;
+    currentMonthSunriseTimings = march_sunrise;
+    currentMonthZuhrTimings = march_zuhr;
+    currentMonthSunsetTimings = march_sunset;
+    currentMonthMaghribTimings = march_maghrib;
 }
-else if (parseInt(currentMonth) == 4)
-{
-	currentMonthImsaacTimings	= april_imsaac;
-	currentMonthFajrTimings		= april_fajr;  
-	currentMonthSunriseTimings	= april_sunrise;
-	currentMonthZuhrTimings		= april_zuhr;  
-	currentMonthSunsetTimings	= april_sunset;
-	currentMonthMaghribTimings	= april_maghrib;
+else if (parseInt(currentMonth) == 4) {
+    currentMonthImsaacTimings = april_imsaac;
+    currentMonthFajrTimings = april_fajr;
+    currentMonthSunriseTimings = april_sunrise;
+    currentMonthZuhrTimings = april_zuhr;
+    currentMonthSunsetTimings = april_sunset;
+    currentMonthMaghribTimings = april_maghrib;
 }
-else if (parseInt(currentMonth) == 5)
-{
-	currentMonthImsaacTimings	= may_imsaac;
-	currentMonthFajrTimings		= may_fajr;  
-	currentMonthSunriseTimings	= may_sunrise;
-	currentMonthZuhrTimings		= may_zuhr;  
-	currentMonthSunsetTimings	= may_sunset;
-	currentMonthMaghribTimings	= may_maghrib;
+else if (parseInt(currentMonth) == 5) {
+    currentMonthImsaacTimings = may_imsaac;
+    currentMonthFajrTimings = may_fajr;
+    currentMonthSunriseTimings = may_sunrise;
+    currentMonthZuhrTimings = may_zuhr;
+    currentMonthSunsetTimings = may_sunset;
+    currentMonthMaghribTimings = may_maghrib;
 }
-else if (parseInt(currentMonth) == 6)
-{
-	currentMonthImsaacTimings	= june_imsaac;
-	currentMonthFajrTimings		= june_fajr;  
-	currentMonthSunriseTimings	= june_sunrise;
-	currentMonthZuhrTimings		= june_zuhr;  
-	currentMonthSunsetTimings	= june_sunset;
-	currentMonthMaghribTimings	= june_maghrib;
+else if (parseInt(currentMonth) == 6) {
+    currentMonthImsaacTimings = june_imsaac;
+    currentMonthFajrTimings = june_fajr;
+    currentMonthSunriseTimings = june_sunrise;
+    currentMonthZuhrTimings = june_zuhr;
+    currentMonthSunsetTimings = june_sunset;
+    currentMonthMaghribTimings = june_maghrib;
 }
-else if (parseInt(currentMonth) == 7)
-{
-	currentMonthImsaacTimings	= july_imsaac;
-	currentMonthFajrTimings		= july_fajr;  
-	currentMonthSunriseTimings	= july_sunrise;
-	currentMonthZuhrTimings		= july_zuhr;  
-	currentMonthSunsetTimings	= july_sunset;
-	currentMonthMaghribTimings	= july_maghrib;
+else if (parseInt(currentMonth) == 7) {
+    currentMonthImsaacTimings = july_imsaac;
+    currentMonthFajrTimings = july_fajr;
+    currentMonthSunriseTimings = july_sunrise;
+    currentMonthZuhrTimings = july_zuhr;
+    currentMonthSunsetTimings = july_sunset;
+    currentMonthMaghribTimings = july_maghrib;
 }
-else if (parseInt(currentMonth) == 8)
-{
-	currentMonthImsaacTimings	= august_imsaac;
-	currentMonthFajrTimings		= august_fajr;  
-	currentMonthSunriseTimings	= august_sunrise;
-	currentMonthZuhrTimings		= august_zuhr;  
-	currentMonthSunsetTimings	= august_sunset;
-	currentMonthMaghribTimings	= august_maghrib;
+else if (parseInt(currentMonth) == 8) {
+    currentMonthImsaacTimings = august_imsaac;
+    currentMonthFajrTimings = august_fajr;
+    currentMonthSunriseTimings = august_sunrise;
+    currentMonthZuhrTimings = august_zuhr;
+    currentMonthSunsetTimings = august_sunset;
+    currentMonthMaghribTimings = august_maghrib;
 }
-else if (parseInt(currentMonth) == 9)
-{
-	currentMonthImsaacTimings	= september_imsaac;
-	currentMonthFajrTimings		= september_fajr;  
-	currentMonthSunriseTimings	= september_sunrise;
-	currentMonthZuhrTimings		= september_zuhr;  
-	currentMonthSunsetTimings	= september_sunset;
-	currentMonthMaghribTimings	= september_maghrib;
+else if (parseInt(currentMonth) == 9) {
+    currentMonthImsaacTimings = september_imsaac;
+    currentMonthFajrTimings = september_fajr;
+    currentMonthSunriseTimings = september_sunrise;
+    currentMonthZuhrTimings = september_zuhr;
+    currentMonthSunsetTimings = september_sunset;
+    currentMonthMaghribTimings = september_maghrib;
 }
-else if (parseInt(currentMonth) == 10)
-{
-	currentMonthImsaacTimings	= october_imsaac;
-	currentMonthFajrTimings		= october_fajr;  
-	currentMonthSunriseTimings	= october_sunrise;
-	currentMonthZuhrTimings		= october_zuhr;  
-	currentMonthSunsetTimings	= october_sunset;
-	currentMonthMaghribTimings	= october_maghrib;
+else if (parseInt(currentMonth) == 10) {
+    currentMonthImsaacTimings = october_imsaac;
+    currentMonthFajrTimings = october_fajr;
+    currentMonthSunriseTimings = october_sunrise;
+    currentMonthZuhrTimings = october_zuhr;
+    currentMonthSunsetTimings = october_sunset;
+    currentMonthMaghribTimings = october_maghrib;
 }
-else if (parseInt(currentMonth) == 11)
-{
-	currentMonthImsaacTimings	= november_imsaac;
-	currentMonthFajrTimings		= november_fajr;  
-	currentMonthSunriseTimings	= november_sunrise;
-	currentMonthZuhrTimings		= november_zuhr;  
-	currentMonthSunsetTimings	= november_sunset;
-	currentMonthMaghribTimings	= november_maghrib;
+else if (parseInt(currentMonth) == 11) {
+    currentMonthImsaacTimings = november_imsaac;
+    currentMonthFajrTimings = november_fajr;
+    currentMonthSunriseTimings = november_sunrise;
+    currentMonthZuhrTimings = november_zuhr;
+    currentMonthSunsetTimings = november_sunset;
+    currentMonthMaghribTimings = november_maghrib;
 }
-else
-{
-	currentMonthImsaacTimings	= december_imsaac;
-	currentMonthFajrTimings		= december_fajr;  
-	currentMonthSunriseTimings	= december_sunrise;
-	currentMonthZuhrTimings		= december_zuhr;  
-	currentMonthSunsetTimings	= december_sunset;
-	currentMonthMaghribTimings	= december_maghrib;
+else {
+    currentMonthImsaacTimings = december_imsaac;
+    currentMonthFajrTimings = december_fajr;
+    currentMonthSunriseTimings = december_sunrise;
+    currentMonthZuhrTimings = december_zuhr;
+    currentMonthSunsetTimings = december_sunset;
+    currentMonthMaghribTimings = december_maghrib;
 }
 
-todaysTimeImsaac = new Date(months[currentTime.getMonth()+1] + " " + currentTime.getDate() + ", " + currentTime.getYear() + " " + currentMonthImsaacTimings[parseInt(currentTime.getDate())]);
-<!--*****Step 2**** Change the FAJR time AND DATE for Toronto-->	
-todaysTimeFajr = new Date(months[currentTime.getMonth()+1] + " " + currentTime.getDate() + ", " + currentTime.getYear() + " " + currentMonthFajrTimings[parseInt(currentTime.getDate())]); 
-<!--*****Step 3**** Change the SUNRISE, ZUHR,SUNSET and MAGHRIB times for Toronto-->		
-todaysTimeRise = new Date(months[currentTime.getMonth()+1] + " " + currentTime.getDate() + ", " + currentTime.getYear() + " " + currentMonthSunriseTimings[parseInt(currentTime.getDate())]); 
-todaysTimeZuhr = new Date(months[currentTime.getMonth()+1] + " " + currentTime.getDate() + ", " + currentTime.getYear() + " " + currentMonthZuhrTimings[parseInt(currentTime.getDate())]);
-todaysTimeSet = new Date(months[currentTime.getMonth()+1] + " " + currentTime.getDate() + ", " + currentTime.getYear() + " " + currentMonthSunsetTimings[parseInt(currentTime.getDate())]);
-todaysTimeMaghrib = new Date(months[currentTime.getMonth()+1] + " " + currentTime.getDate() + ", " + currentTime.getYear() + " " + currentMonthMaghribTimings[parseInt(currentTime.getDate())]);
+todaysTimeImsaac = new Date(months[currentTime.getMonth() + 1] + " " + currentTime.getDate() + ", " + currentTime.getYear() + " " + currentMonthImsaacTimings[parseInt(currentTime.getDate())]);
+<!--*****Step 2**** Change the FAJR time AND DATE for Toronto-->
+todaysTimeFajr = new Date(months[currentTime.getMonth() + 1] + " " + currentTime.getDate() + ", " + currentTime.getYear() + " " + currentMonthFajrTimings[parseInt(currentTime.getDate())]);
+<!--*****Step 3**** Change the SUNRISE, ZUHR,SUNSET and MAGHRIB times for Toronto-->
+todaysTimeRise = new Date(months[currentTime.getMonth() + 1] + " " + currentTime.getDate() + ", " + currentTime.getYear() + " " + currentMonthSunriseTimings[parseInt(currentTime.getDate())]);
+todaysTimeZuhr = new Date(months[currentTime.getMonth() + 1] + " " + currentTime.getDate() + ", " + currentTime.getYear() + " " + currentMonthZuhrTimings[parseInt(currentTime.getDate())]);
+todaysTimeSet = new Date(months[currentTime.getMonth() + 1] + " " + currentTime.getDate() + ", " + currentTime.getYear() + " " + currentMonthSunsetTimings[parseInt(currentTime.getDate())]);
+todaysTimeMaghrib = new Date(months[currentTime.getMonth() + 1] + " " + currentTime.getDate() + ", " + currentTime.getYear() + " " + currentMonthMaghribTimings[parseInt(currentTime.getDate())]);

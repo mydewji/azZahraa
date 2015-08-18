@@ -1,77 +1,77 @@
 <ion-view view-title="Home">
-  <ion-content >
-    
-    <!-- Date Card -->
-    <div class="card">
-      <div class="item item-divider">
-        Today's Islamic Date
-      </div>
-      <div class="item item-text-wrap">
-          <i class="icon ion-ios-clock-outline"></i>
-          {{todayIslamicDate}}
-      </div>  
-    </div>
- 
-    <!-- Namaaz Card -->
-    <div class="list card">
-      <div class="item item-divider">
-        Today's Namaaz timings
-      </div>
-      
-      <div class="item item-icon-left">
-        <i class="icon ion-ios-moon-outline"></i>
-        Ihtiyat : {{todayImsaac | getTime}}
-      </div>
+    <ion-content>
 
-      <div class="item item-icon-left">
-        <i class="icon ion-flame"></i>
-        Fajr: {{todayFajr | getTime}}
-      </div>
-      
-      <div class="item item-icon-left">
-        <i class="icon ion-android-sunny"></i>
-        Sunrise: {{todaySunrise | getTime}}
-      </div>
-      
-      <div class="item item-icon-left">
-        <i class="icon ion-flash"></i>
-         Zuhr: {{todayZuhr | getTime}}
-      </div>
-      
-      <div class="item item-icon-left">
-        <i class="icon ion-android-sunny"></i>
-        Sunset: {{todaySunset | getTime}}
-      </div>
-      
-      <div class="item item-icon-left">
-        <i class="icon ion-flash"></i>
-        Maghrib: {{todayMaghrib | getTime}}
-      </div>
-    </div>
+        <!-- Date Card -->
+        <div class="card">
+            <div class="item item-divider">
+                Today's Islamic Date
+            </div>
+            <div class="item item-text-wrap">
+                <i class="icon ion-ios-clock-outline"></i>
+                {{todayIslamicDate}}
+            </div>
+        </div>
 
-  <!-- Next Event Card -->
-    <div class="list card">
-      <div class="item item-divider">
-         Next Event
-      </div>
+        <!-- Namaaz Card -->
+        <div class="list card">
+            <div class="item item-divider">
+                Today's Namaaz timings
+            </div>
 
-      <div class="item item-icon-left">
-        <i class="icon ion-ios-calendar-outline"></i>
-        {{nextEvent.title}}
-      </div>
-      
-      <div class="item item-icon-left">
-        <i class="icon ion-ios-clock-outline"></i>
-        {{nextEvent.date | formatNextEventDate }}
-      </div>
-      
-      <div class="item item-icon-left item-text-wrap">
-        <i class="icon ion-edit"></i>
-          {{nextEvent.description | formatDescription}}
-      </div>
-      
-     
-    </div>
-   
-  </ion-content>
+            <div class="item item-icon-left">
+                <i class="icon ion-ios-moon-outline"></i>
+                Ihtiyat : {{todayImsaac | getTime}}
+            </div>
+
+            <div class="item item-icon-left">
+                <i class="icon ion-flame"></i>
+                Fajr: {{todayFajr | getTime}}
+            </div>
+
+            <div class="item item-icon-left">
+                <i class="icon ion-android-sunny"></i>
+                Sunrise: {{todaySunrise | getTime}}
+            </div>
+
+            <div class="item item-icon-left">
+                <i class="icon ion-flash"></i>
+                Zuhr: {{todayZuhr | getTime}}
+            </div>
+
+            <div class="item item-icon-left">
+                <i class="icon ion-android-sunny"></i>
+                Sunset: {{todaySunset | getTime}}
+            </div>
+
+            <div class="item item-icon-left">
+                <i class="icon ion-flash"></i>
+                Maghrib: {{todayMaghrib | getTime}}
+            </div>
+        </div>
+
+        <!-- Next Event Card -->
+        <div class="list card">
+            <div class="item item-divider">
+                Next Event
+            </div>
+
+            <div class="item item-icon-left">
+                <i class="icon ion-ios-calendar-outline"></i>
+                {{nextEvent.title}}
+            </div>
+
+            <div class="item item-icon-left">
+                <i class="icon ion-ios-clock-outline"></i>
+                {{nextEvent.date | formatNextEventDate }}
+            </div>
+
+            <div class="item item-icon-left item-text-wrap">
+                <i class="icon ion-edit"></i>
+                {{nextEvent.description | formatDescription}}
+            </div>
+
+
+        </div>
+
+    </ion-content>
 </ion-view>
