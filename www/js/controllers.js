@@ -17,7 +17,7 @@ var app = angular.module('azZahraa.controllers', [])
 
 .filter('getTime', function() {
   return function(momentDate) {
-    var stringDateFormatted = momentDate.format("h:mm");
+    var stringDateFormatted = momentDate.format("h:mm a");
     return stringDateFormatted;
   };
 })
@@ -46,9 +46,10 @@ var app = angular.module('azZahraa.controllers', [])
     $scope.todayImsaac = moment(window.todaysTimeImsaac);
     $scope.todaySunrise = moment(window.todaysTimeRise);
     $scope.todayFajr = moment(window.todaysTimeFajr);
-    $scope.todayZuhr = moment(window.todaysTimeZuhr);
-    $scope.todaySunset = moment(window.todaysTimeSet);
-    $scope.todayMaghrib = moment(window.todaysTimeMaghrib);
+    $scope.todayZuhr = moment(window.todaysTimeZuhr).add(12,'h');
+    $scope.todaySunset = moment(window.todaysTimeSet).add(12,'h');
+    $scope.todayMaghrib = moment(window.todaysTimeMaghrib).add(12,'h');
+
        
     //Salaat times helper TODO
     
