@@ -7796,3 +7796,6 @@ a.button {
     top: 93px; }
   .platform-ios.platform-cordova:not(.fullscreen) .has-header.has-subheader.has-tabs-top {
     top: 137px; } }
+
+.scroll-bar {
+  visibility: hidden !important; }

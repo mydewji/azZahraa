@@ -28,3 +28,9 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 
 @import "partials/android";
 @import "partials/ios";
+
+//remove all scrollbars for more native-like app feel
+.scroll-bar {
+  visibility: hidden !important;
+}
+
