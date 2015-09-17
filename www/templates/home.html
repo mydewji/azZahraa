@@ -15,35 +15,35 @@
         <!-- Namaaz Card -->
         <div class="list card">
             <div class="item item-divider">
-                Today's Namaaz timings
+                Namaaz
             </div>
 
-            <div class="item item-icon-left">
+            <div class="item item-icon-left" ng-show="showImsaac">
                 <i class="icon ion-ios-moon-outline"></i>
                 Ihtiyat : {{todayImsaac | getTime}}
             </div>
 
-            <div class="item item-icon-left">
+            <div class="item item-icon-left" ng-show="showFajr">
                 <i class="icon ion-flame"></i>
                 Fajr: {{todayFajr | getTime}}
             </div>
 
-            <div class="item item-icon-left">
+            <div class="item item-icon-left" ng-show="showSunrise">
                 <i class="icon ion-android-sunny"></i>
                 Sunrise: {{todaySunrise | getTime}}
             </div>
 
-            <div class="item item-icon-left">
+            <div class="item item-icon-left" ng-show="showZuhr">
                 <i class="icon ion-flash"></i>
                 Zuhr: {{todayZuhr | getTime}}
             </div>
 
-            <div class="item item-icon-left">
+            <div class="item item-icon-left" ng-show="showSunset">
                 <i class="icon ion-android-sunny"></i>
                 Sunset: {{todaySunset | getTime}}
             </div>
 
-            <div class="item item-icon-left">
+            <div class="item item-icon-left" ng-show="showMaghrib">
                 <i class="icon ion-flash"></i>
                 Maghrib: {{todayMaghrib | getTime}}
             </div>

@@ -22,6 +22,13 @@ var app = angular.module('azZahraa.controllers', [])
         };
     })
 
+    .filter('getTime2', function () {
+        return function (momentDate) {
+            var stringDateFormatted = momentDate.format("MMM Do YYYY h:mm a");
+            return stringDateFormatted;
+        };
+    })
+
     .filter('formatDescription', function () {
         return function (description) {
             if (description != "Could not fetch next event description") {
@@ -40,18 +47,46 @@ var app = angular.module('azZahraa.controllers', [])
     })
 
     .controller('AppCtrl', function ($scope, $http) {
-        $scope.today = new moment();
+        $scope.currentTime = new moment();
 
         //Salaat times from SalaatTimes.js - TODO refactor SalaatTimes.js to not be horrible (https://stackoverflow.com/questions/8228281/what-is-the-function-construct-in-javascript)
-        $scope.todayImsaac = moment(window.todaysTimeImsaac);
-        $scope.todaySunrise = moment(window.todaysTimeRise);
-        $scope.todayFajr = moment(window.todaysTimeFajr);
-        $scope.todayZuhr = moment(window.todaysTimeZuhr).add(12, 'h');
-        $scope.todaySunset = moment(window.todaysTimeSet).add(12, 'h');
-        $scope.todayMaghrib = moment(window.todaysTimeMaghrib).add(12, 'h');
+        $scope.todayImsaac = moment(window.todaysTimeImsaac).add(1900, 'y');
+        $scope.todaySunrise = moment(window.todaysTimeRise).add(1900, 'y');
+        $scope.todayFajr = moment(window.todaysTimeFajr).add(1900, 'y');
+        $scope.todayZuhr = moment(window.todaysTimeZuhr).add(12, 'h').add(1900, 'y');
+        $scope.todaySunset = moment(window.todaysTimeSet).add(12, 'h').add(1900, 'y');
+        $scope.todayMaghrib = moment(window.todaysTimeMaghrib).add(12, 'h').add(1900, 'y');
 
+        $scope.showImsaac = false;
+        $scope.showSunrise = false;
+        $scope.showFajr = false;
+        $scope.showZuhr = false;
+        $scope.showSunset = false;
+        $scope.showMaghrib = false;
 
-        //Salaat times helper TODO
+        //Case 0: midnight -> sunrise = show ihtiyat + fajr + sunrise
+        var todayMidnight = new moment().startOf('day');
+        var now = $scope.currentTime;
+        if (now.isBetween( todayMidnight , $scope.todaySunrise))
+        {
+            $scope.showImsaac = true;
+            $scope.showFajr = true;
+            $scope.showSunrise = true;
+        }
+
+        //Case 1: sunrise -> sunset = show zuhr + sunset
+        if ($scope.currentTime.isBetween($scope.todaySunrise , $scope.todaySunset))
+        {
+            $scope.showZuhr = true;
+            $scope.showSunset = true;
+        }
+
+        //Case 2: sunset -> midnight = show maghrib
+        var tomorrowMidnight = new moment().endOf('day');
+        if ($scope.currentTime.isBetween($scope.todaySunset , tomorrowMidnight))
+        {
+            $scope.showMaghrib = true;
+        }
 
         //set default nextEvent (title, date, description)
         $scope.nextEvent = {

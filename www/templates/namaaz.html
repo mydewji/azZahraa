@@ -1,5 +1,54 @@
 <ion-view view-title="Namaaz">
     <ion-content>
-        <h1>Namaaz</h1>
+        <!-- Namaaz Card -->
+        <div class="list card">
+            <div class="item item-divider">
+                Today's Namaaz timings
+            </div>
+
+            <div class="item item-icon-left">
+                <i class="icon ion-ios-moon-outline"></i>
+                Ihtiyat : {{todayImsaac | getTime}}
+            </div>
+
+            <div class="item item-icon-left">
+                <i class="icon ion-flame"></i>
+                Fajr: {{todayFajr | getTime}}
+            </div>
+
+            <div class="item item-icon-left">
+                <i class="icon ion-android-sunny"></i>
+                Sunrise: {{todaySunrise | getTime}}
+            </div>
+
+            <div class="item item-icon-left">
+                <i class="icon ion-flash"></i>
+                Zuhr: {{todayZuhr | getTime}}
+            </div>
+
+            <div class="item item-icon-left">
+                <i class="icon ion-android-sunny"></i>
+                Sunset: {{todaySunset | getTime}}
+            </div>
+
+            <div class="item item-icon-left">
+                <i class="icon ion-flash"></i>
+                Maghrib: {{todayMaghrib | getTime}}
+            </div>
+        </div>
+
+
+        <!-- Namaaz Schedule Card -->
+        <div class="card">
+            <div class="item item-divider">
+                Monthly Namaaz Timings
+            </div>
+            <a href="#" class="item item-text-wrap"
+               onclick="window.open('http://az-zahraa.org/salaat_timings.asp', '_system', 'location=yes'); return false;">
+                <i class="icon ion-link"></i>
+                <!--TODO style as link-->
+                View full timings
+            </a>
+        </div>
     </ion-content>
 </ion-view>
