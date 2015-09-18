@@ -1,0 +1,31 @@
+@font-face {
+	font-family: 'prayerIconFont';
+	src:url('fonts/prayerIconFont.eot?-7hd4pg');
+	src:url('fonts/prayerIconFont.eot?#iefix-7hd4pg') format('embedded-opentype'),
+		url('fonts/prayerIconFont.ttf?-7hd4pg') format('truetype'),
+		url('fonts/prayerIconFont.woff?-7hd4pg') format('woff'),
+		url('fonts/prayerIconFont.svg?-7hd4pg#prayerIconFont') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+	font-family: 'prayerIconFont';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.icon-prayer-inverted:before {
+	content: "\e601";
+}
+.icon-prayer:before {
+	content: "\e600";
+}
