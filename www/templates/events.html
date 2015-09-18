@@ -1,6 +1,10 @@
 <ion-view view-title="Events">
     <ion-content>
 
+        <!-- Pull to Refresh -->
+        <ion-refresher on-refresh="doRefresh()"></ion-refresher>
+
+
         <div ng-repeat="event in events">
             <!-- Event Cards -->
             <div class="list card">
