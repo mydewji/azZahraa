@@ -66,12 +66,9 @@ var app = angular.module('azZahraa.controllers', [])
                 for (var i = 0; i < (data.events).length; i++) {
 
                     var eventDateAsString = data.events[i].date;
-                    var eventDate = moment(eventDateAsString, "D/M/yyyy h:mm:ss A");
-                    if (eventDate.isAfter($scope.today)) {
+                    var eventDate = moment(eventDateAsString, "D/M/yyyy h:mm:ss A").add(5, 'h');
+                    if (eventDate.isAfter($scope.currentTime)) {
                         $scope.nextEvent = data.events[i];
-                        //console.log("Today is: " + moment());
-                        //console.log("Event after today is: " + $scope.nextEvent.date);
-                        //console.log(data.events[i]);
                         break;
                     }
                 }
