@@ -7799,6 +7799,3 @@ a.button {
 
 .scroll-bar {
   visibility: hidden !important; }
-
-.ion-refresher {
-  -webkit-transform: translateZ(0); }
