@@ -23,12 +23,16 @@ angular.module('azZahraa', ['ionic', 'azZahraa.controllers', 'ionic.contrib.draw
 
     })
 
+    //Native scrolling on android (disable during dev or ionic lab breaks)
+    //.config(function($ionicConfigProvider) {
+    //    if(!ionic.Platform.isIOS())$ionicConfigProvider.scrolling.jsScrolling(false);
+    //})
+
     .config(function ($stateProvider, $urlRouterProvider) {
 
-        //code to allow for ios/android menu switch -TODO implement
+        //code to allow for ios/android menu switch
         var isAndroid = ionic.Platform.isAndroid();
         var menuTemplateUrl = (isAndroid) ? 'templates/menu-android.html' : 'templates/menu-ios.html';
-
 
         $stateProvider
 
