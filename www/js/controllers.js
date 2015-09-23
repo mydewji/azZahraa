@@ -1,6 +1,6 @@
-var app = angular.module('azZahraa.controllers', [])
+var app = angular.module('azZahraa.controllers', ['azZahraa.services'])
 
-    .controller('AppCtrl', function ($scope, $http) {
+    .controller('AppCtrl', function ($scope, $http, dataService) {
         $scope.currentTime = new moment();
 
         //Salaat times from SalaatTimes.js - TODO refactor SalaatTimes.js to not be horrible (https://stackoverflow.com/questions/8228281/what-is-the-function-construct-in-javascript)
@@ -23,7 +23,8 @@ var app = angular.module('azZahraa.controllers', [])
         //set default calendarOffset
         $scope.calendarOffset = 0;
 
-        getData($scope, $http);
+        //getData($scope, $http);
+        getData2($scope, dataService);
 
 
         //Todays islamic date
@@ -38,8 +39,8 @@ var app = angular.module('azZahraa.controllers', [])
             setBooleans($scope);
 
             //GET EVENTS
-            getData($scope, $http);
-
+            //getData($scope, $http);
+            getData2($scope, dataService);
             //Stop the ion-refresher from spinning
             $scope.$broadcast('scroll.refreshComplete');
 
@@ -67,6 +68,30 @@ function getData($scope, $http){
                 }
             }
         });
+}
+
+function getData2($scope, dataService){
+    var promise = dataService.getJson();
+    promise.then(function(json){
+        $scope.jsonData = json.data;
+        console.log($scope.jsonData);
+
+        $scope.events = $scope.jsonData.events;
+        $scope.calendarOffset = $scope.jsonData.calendarOffset;
+
+        $scope.evenDates =  Date.parse($scope.jsonData.events[0].date);
+
+        ////get next event and store in $scope.nextEvent
+        for (var i = 0; i < ($scope.jsonData.events).length; i++) {
+
+            var eventDateAsString = $scope.jsonData.events[i].date;
+            var eventDate = moment(eventDateAsString, "D/M/yyyy h:mm:ss A").add(5, 'h');
+            if (eventDate.isAfter($scope.currentTime)) {
+                $scope.nextEvent = $scope.jsonData.events[i];
+                break;
+            }
+        }
+    });
 }
 
 function setBooleans ($scope)

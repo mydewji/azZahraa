@@ -24,9 +24,9 @@ angular.module('azZahraa', ['ionic', 'azZahraa.controllers', 'ionic.contrib.draw
     })
 
     //Native scrolling on android (disable during dev or ionic lab breaks)
-    //.config(function($ionicConfigProvider) {
-    //    if(!ionic.Platform.isIOS())$ionicConfigProvider.scrolling.jsScrolling(false);
-    //})
+    .config(function($ionicConfigProvider) {
+        if(!ionic.Platform.isIOS())$ionicConfigProvider.scrolling.jsScrolling(false);
+    })
 
     .config(function ($stateProvider, $urlRouterProvider) {
 
