@@ -2,7 +2,7 @@
     <ion-content>
 
         <!-- Pull to Refresh -->
-        <ion-refresher on-refresh="doRefresh()"></ion-refresher>
+        <ion-refresher pulling-text="Pull to refresh..." refreshing-text="Refreshing!" on-refresh="doRefresh()"></ion-refresher>
 
 
         <div ng-repeat="event in events">

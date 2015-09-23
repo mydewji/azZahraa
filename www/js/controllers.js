@@ -11,6 +11,7 @@ var app = angular.module('azZahraa.controllers', ['azZahraa.services'])
         $scope.todaySunset = moment(window.todaysTimeSet).add(12, 'h').add(1900, 'y');
         $scope.todayMaghrib = moment(window.todaysTimeMaghrib).add(12, 'h').add(1900, 'y');
 
+        //Decide what to display on home screen for namaaz times
         setBooleans($scope);
 
         //set default nextEvent (title, date, description)
