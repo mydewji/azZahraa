@@ -11,36 +11,7 @@ var app = angular.module('azZahraa.controllers', [])
         $scope.todaySunset = moment(window.todaysTimeSet).add(12, 'h').add(1900, 'y');
         $scope.todayMaghrib = moment(window.todaysTimeMaghrib).add(12, 'h').add(1900, 'y');
 
-        $scope.showImsaac = false;
-        $scope.showSunrise = false;
-        $scope.showFajr = false;
-        $scope.showZuhr = false;
-        $scope.showSunset = false;
-        $scope.showMaghrib = false;
-
-        //Case 0: midnight -> sunrise = show ihtiyat + fajr + sunrise
-        var todayMidnight = new moment().startOf('day');
-        var now = $scope.currentTime;
-        if (now.isBetween( todayMidnight , $scope.todaySunrise))
-        {
-            $scope.showImsaac = true;
-            $scope.showFajr = true;
-            $scope.showSunrise = true;
-        }
-
-        //Case 1: sunrise -> sunset = show zuhr + sunset
-        if ($scope.currentTime.isBetween($scope.todaySunrise , $scope.todaySunset))
-        {
-            $scope.showZuhr = true;
-            $scope.showSunset = true;
-        }
-
-        //Case 2: sunset -> midnight = show maghrib
-        var tomorrowMidnight = new moment().endOf('day');
-        if ($scope.currentTime.isBetween($scope.todaySunset , tomorrowMidnight))
-        {
-            $scope.showMaghrib = true;
-        }
+        setBooleans($scope);
 
         //set default nextEvent (title, date, description)
         $scope.nextEvent = {
@@ -52,7 +23,7 @@ var app = angular.module('azZahraa.controllers', [])
         //set default calendarOffset
         $scope.calendarOffset = 0;
 
-        getEvents($scope, $http);
+        getData($scope, $http);
 
 
         //Todays islamic date
@@ -61,11 +32,13 @@ var app = angular.module('azZahraa.controllers', [])
 
         $scope.doRefresh = function() {
             //DO REFRESH
-            //Get current time!
+            //update to current time!
             $scope.currentTime = new moment();
 
+            setBooleans($scope);
+
             //GET EVENTS
-            getEvents($scope, $http);
+            getData($scope, $http);
 
             //Stop the ion-refresher from spinning
             $scope.$broadcast('scroll.refreshComplete');
@@ -74,7 +47,7 @@ var app = angular.module('azZahraa.controllers', [])
 
     });
 
-function getEvents($scope, $http){
+function getData($scope, $http){
     url = "http://az-zahraa.org/GetEvents.asp"
     $http.get(url)
         .success(function (data) {
@@ -82,7 +55,6 @@ function getEvents($scope, $http){
             $scope.calendarOffset = data.calendarOffset;
 
             $scope.eventDates = Date.parse(data.events[0].date);
-            // console.log($scope.eventDates);
 
             //get next event and store in $scope.nextEvent
             for (var i = 0; i < (data.events).length; i++) {
@@ -96,3 +68,48 @@ function getEvents($scope, $http){
             }
         });
 }
+
+function setBooleans ($scope)
+{
+    //Set default
+    $scope.showImsaac = false;
+    $scope.showSunrise = false;
+    $scope.showFajr = false;
+    $scope.showZuhr = false;
+    $scope.showSunset = false;
+    $scope.showMaghrib = false;
+
+    //Case 0: midnight -> sunrise = show ihtiyat + fajr + sunrise
+    var todayMidnight = new moment().startOf('day');
+    var now = $scope.currentTime;
+    if (now.isBetween( todayMidnight , $scope.todaySunrise))
+    {
+        $scope.showImsaac = true;
+        $scope.showFajr = true;
+        $scope.showSunrise = true;
+    }
+
+    //Case 1: sunrise -> sunset = show zuhr + sunset
+    if ($scope.currentTime.isBetween($scope.todaySunrise , $scope.todaySunset))
+    {
+        $scope.showZuhr = true;
+        $scope.showSunset = true;
+    }
+
+    //Case 2: sunset -> midnight = show maghrib
+    var tomorrowMidnight = new moment().endOf('day');
+    if ($scope.currentTime.isBetween($scope.todaySunset , tomorrowMidnight))
+    {
+        $scope.showMaghrib = true;
+    }
+}
+
+//function setBooleans2 ($scope)
+//{
+//    $scope.showImsaac = true;
+//    $scope.showSunrise = true;
+//    $scope.showFajr = true;
+//    $scope.showZuhr = true;
+//    $scope.showSunset = true;
+//    $scope.showMaghrib = true;
+//}
