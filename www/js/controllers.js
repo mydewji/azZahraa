@@ -82,12 +82,14 @@ function getData2($scope, dataService){
 
         $scope.evenDates =  Date.parse($scope.jsonData.events[0].date);
 
+        //add 3h to current time so event doesn't disappear whilst event is going on
+        $scope.timeForCurrentEvent = $scope.currentTime.add(3, 'h');
         ////get next event and store in $scope.nextEvent
         for (var i = 0; i < ($scope.jsonData.events).length; i++) {
 
             var eventDateAsString = $scope.jsonData.events[i].date;
             var eventDate = moment(eventDateAsString, "D/M/yyyy h:mm:ss A").add(5, 'h');
-            if (eventDate.isAfter($scope.currentTime)) {
+            if (eventDate.isAfter($scope.timeForCurrentEvent)) {
                 $scope.nextEvent = $scope.jsonData.events[i];
                 break;
             }
