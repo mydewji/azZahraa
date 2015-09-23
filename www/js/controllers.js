@@ -52,27 +52,8 @@ var app = angular.module('azZahraa.controllers', [])
         //set default calendarOffset
         $scope.calendarOffset = 0;
 
-        // json url = "http://az-zahraa.org/GetEvents.asp"
-        url = "http://az-zahraa.org/GetEvents.asp"
-        $http.get(url)
-            .success(function (data) {
-                $scope.events = data.events;
-                $scope.calendarOffset = data.calendarOffset;
+        getEvents($scope, $http);
 
-                $scope.eventDates = Date.parse(data.events[0].date);
-                // console.log($scope.eventDates);
-
-                //get next event and store in $scope.nextEvent
-                for (var i = 0; i < (data.events).length; i++) {
-
-                    var eventDateAsString = data.events[i].date;
-                    var eventDate = moment(eventDateAsString, "D/M/yyyy h:mm:ss A").add(5, 'h');
-                    if (eventDate.isAfter($scope.currentTime)) {
-                        $scope.nextEvent = data.events[i];
-                        break;
-                    }
-                }
-            });
 
         //Todays islamic date
         var islamicDateOffset = $scope.calendarOffset - 1;
@@ -83,27 +64,8 @@ var app = angular.module('azZahraa.controllers', [])
             //Get current time!
             $scope.currentTime = new moment();
 
-            //GET EVENTS TODO Split out into function
-            url = "http://az-zahraa.org/GetEvents.asp"
-            $http.get(url)
-                .success(function (data) {
-                    $scope.events = data.events;
-                    $scope.calendarOffset = data.calendarOffset;
-
-                    $scope.eventDates = Date.parse(data.events[0].date);
-                    // console.log($scope.eventDates);
-
-                    //get next event and store in $scope.nextEvent
-                    for (var i = 0; i < (data.events).length; i++) {
-
-                        var eventDateAsString = data.events[i].date;
-                        var eventDate = moment(eventDateAsString, "D/M/yyyy h:mm:ss A").add(5, 'h');
-                        if (eventDate.isAfter($scope.currentTime)) {
-                            $scope.nextEvent = data.events[i];
-                            break;
-                        }
-                    }
-                });
+            //GET EVENTS
+            getEvents($scope, $http);
 
             //Stop the ion-refresher from spinning
             $scope.$broadcast('scroll.refreshComplete');
@@ -112,3 +74,25 @@ var app = angular.module('azZahraa.controllers', [])
 
     });
 
+function getEvents($scope, $http){
+    url = "http://az-zahraa.org/GetEvents.asp"
+    $http.get(url)
+        .success(function (data) {
+            $scope.events = data.events;
+            $scope.calendarOffset = data.calendarOffset;
+
+            $scope.eventDates = Date.parse(data.events[0].date);
+            // console.log($scope.eventDates);
+
+            //get next event and store in $scope.nextEvent
+            for (var i = 0; i < (data.events).length; i++) {
+
+                var eventDateAsString = data.events[i].date;
+                var eventDate = moment(eventDateAsString, "D/M/yyyy h:mm:ss A").add(5, 'h');
+                if (eventDate.isAfter($scope.currentTime)) {
+                    $scope.nextEvent = data.events[i];
+                    break;
+                }
+            }
+        });
+}
