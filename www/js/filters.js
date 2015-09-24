@@ -31,7 +31,7 @@ angular.module('azZahraa.filters', [])
 
     .filter('formatDescription', function () {
         return function (description) {
-            if (description != "Could not fetch next event description") {
+            if (description != "Could not fetch event description, please check your network connection") {
                 description = unescape(description);
                 description = angular.element(description).text();
                 description = description.replace(/\+/g, " ");

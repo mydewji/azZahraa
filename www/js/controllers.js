@@ -16,9 +16,14 @@ var app = angular.module('azZahraa.controllers', ['azZahraa.services'])
 
         //set default nextEvent (title, date, description)
         $scope.nextEvent = {
-            title: "Could not fetch next event",
-            date: "Could not fetch next event date",
-            description: "Could not fetch next event description"
+            title: "Could not fetch event",
+            date: new moment("invalid date"),
+            description: "Could not fetch event description, please check your network connection"
+        };
+
+        //set default events
+        $scope.events = {
+            0: $scope.nextEvent
         };
 
         //set default calendarOffset
