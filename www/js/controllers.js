@@ -1,18 +1,6 @@
 var app = angular.module('azZahraa.controllers', ['azZahraa.services'])
 
     .controller('AppCtrl', function ($scope, $http, dataService) {
-        $scope.currentTime = new moment();
-
-        //Salaat times from SalaatTimes.js - TODO refactor SalaatTimes.js to not be horrible (https://stackoverflow.com/questions/8228281/what-is-the-function-construct-in-javascript)
-        $scope.todayImsaac = moment(window.todaysTimeImsaac).add(1900, 'y');
-        $scope.todaySunrise = moment(window.todaysTimeRise).add(1900, 'y');
-        $scope.todayFajr = moment(window.todaysTimeFajr).add(1900, 'y');
-        $scope.todayZuhr = moment(window.todaysTimeZuhr).add(12, 'h').add(1900, 'y');
-        $scope.todaySunset = moment(window.todaysTimeSet).add(12, 'h').add(1900, 'y');
-        $scope.todayMaghrib = moment(window.todaysTimeMaghrib).add(12, 'h').add(1900, 'y');
-
-        //Decide what to display on home screen for namaaz times
-        setBooleans($scope);
 
         //set default nextEvent (title, date, description)
         $scope.nextEvent = {
@@ -29,24 +17,38 @@ var app = angular.module('azZahraa.controllers', ['azZahraa.services'])
         //set default calendarOffset
         $scope.calendarOffset = 0;
 
-        //getData($scope, $http);
-        getData2($scope, dataService);
+        //get current time
+        getCurrentTime($scope);
+
+        getSalaatTimes($scope);
+
+        //Decide what to display on home screen for namaaz times
+        setBooleans($scope);
+
+        //update from az-zahraa.org
+        getData($scope, dataService);
 
 
         //Todays islamic date
-        var islamicDateOffset = $scope.calendarOffset - 1;
-        $scope.todayIslamicDate = writeIslamicDate(islamicDateOffset);
+        getIslamicDate($scope);
 
         $scope.doRefresh = function() {
-            //DO REFRESH
-            //update to current time!
-            $scope.currentTime = new moment();
 
+            //get current time
+            getCurrentTime($scope);
+
+            getSalaatTimes($scope);
+
+            //Decide what to display on home screen for namaaz times
             setBooleans($scope);
 
-            //GET EVENTS
-            //getData($scope, $http);
-            getData2($scope, dataService);
+            //update from az-zahraa.org
+            getData($scope, dataService);
+
+
+            //Todays islamic date
+            getIslamicDate($scope);
+
             //Stop the ion-refresher from spinning
             $scope.$broadcast('scroll.refreshComplete');
 
@@ -54,29 +56,9 @@ var app = angular.module('azZahraa.controllers', ['azZahraa.services'])
 
     });
 
-function getData($scope, $http){
-    url = "http://az-zahraa.org/GetEvents.asp"
-    $http.get(url)
-        .success(function (data) {
-            $scope.events = data.events;
-            $scope.calendarOffset = data.calendarOffset;
 
-            $scope.eventDates = Date.parse(data.events[0].date);
 
-            //get next event and store in $scope.nextEvent
-            for (var i = 0; i < (data.events).length; i++) {
-
-                var eventDateAsString = data.events[i].date;
-                var eventDate = moment(eventDateAsString, "D/M/yyyy h:mm:ss A").add(5, 'h');
-                if (eventDate.isAfter($scope.currentTime)) {
-                    $scope.nextEvent = data.events[i];
-                    break;
-                }
-            }
-        });
-}
-
-function getData2($scope, dataService){
+function getData($scope, dataService){
     var promise = dataService.getJson();
     promise.then(function(json){
         $scope.jsonData = json.data;
@@ -137,12 +119,24 @@ function setBooleans ($scope)
     }
 }
 
-//function setBooleans2 ($scope)
-//{
-//    $scope.showImsaac = true;
-//    $scope.showSunrise = true;
-//    $scope.showFajr = true;
-//    $scope.showZuhr = true;
-//    $scope.showSunset = true;
-//    $scope.showMaghrib = true;
-//}
+function getCurrentTime ($scope)
+{
+    $scope.currentTime = new moment();
+}
+
+function getIslamicDate ($scope)
+{
+    var islamicDateOffset = $scope.calendarOffset - 1;
+    $scope.todayIslamicDate = writeIslamicDate(islamicDateOffset);
+}
+
+function getSalaatTimes ($scope)
+{
+    //Salaat times from SalaatTimes.js - TODO refactor SalaatTimes.js to not be horrible (https://stackoverflow.com/questions/8228281/what-is-the-function-construct-in-javascript)
+    $scope.todayImsaac = moment(window.todaysTimeImsaac).add(1900, 'y');
+    $scope.todaySunrise = moment(window.todaysTimeRise).add(1900, 'y');
+    $scope.todayFajr = moment(window.todaysTimeFajr).add(1900, 'y');
+    $scope.todayZuhr = moment(window.todaysTimeZuhr).add(12, 'h').add(1900, 'y');
+    $scope.todaySunset = moment(window.todaysTimeSet).add(12, 'h').add(1900, 'y');
+    $scope.todayMaghrib = moment(window.todaysTimeMaghrib).add(12, 'h').add(1900, 'y');
+}
