@@ -2,7 +2,7 @@
 // 'azZahraa' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'azZahraa.controllers' is found in controllers.js
-angular.module('azZahraa', ['ionic', 'azZahraa.controllers', 'ionic.contrib.drawer', 'azZahraa.filters'])
+angular.module('azZahraa', ['ionic', 'azZahraa.controllers', 'ionic.contrib.drawer', 'azZahraa.filters', 'templates'])
 
 
     .run(function ($ionicPlatform) {
