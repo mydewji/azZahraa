@@ -31,20 +31,6 @@ drawer .item {
   }
 }
 
-drawer.animate {
-  transition: transform 0.2s linear;
-  -webkit-transition: -webkit-transform 0.2s linear;
-
-  //default values?
-  //transition: transform 0.2s ease-in-out;
-  //-webkit-transition: -webkit-transform 0.2s ease-in-out;
-
-  //Crazy values (last version -> revert to this if we have issues?)
-  //transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  //-webkit-transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1.000);
-
-}
-
 .list {
   padding-top: 0;
 }

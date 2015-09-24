@@ -18,6 +18,7 @@ angular.module('azZahraa', ['ionic', 'azZahraa.controllers', 'ionic.contrib.draw
                 // org.apache.cordova.statusbar required
                 StatusBar.styleLightContent();
             }
+
         });
 
 

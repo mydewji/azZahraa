@@ -7763,9 +7763,6 @@ a.button {
         text-align: center;
         position: absolute;
         bottom: -6px; }
-  .platform-android drawer.animate {
-    transition: transform 0.2s linear;
-    -webkit-transition: -webkit-transform 0.2s linear; }
   .platform-android .list {
     padding-top: 0; }
   .platform-android .drawer-header {
