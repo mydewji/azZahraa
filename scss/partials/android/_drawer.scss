@@ -40,8 +40,8 @@ drawer.animate {
   //-webkit-transition: -webkit-transform 0.2s ease-in-out;
 
   //Crazy values (last version -> revert to this if we have issues?)
-  //transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  //-webkit-transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1.000);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1.000);
 
 }
 
