@@ -1,6 +1,6 @@
 var app = angular.module('azZahraa.controllers', ['azZahraa.services'])
 
-    .controller('AppCtrl', function ($scope, $http, dataService) {
+    .controller('AppCtrl', function ($scope, $http, dataService, $interval) {
 
         //set default nextEvent (title, date, description)
         $scope.nextEvent = {
@@ -32,22 +32,14 @@ var app = angular.module('azZahraa.controllers', ['azZahraa.services'])
         //Todays islamic date
         getIslamicDate($scope);
 
+
+        $scope.update = $interval(function() {
+            refreshEverything($scope, dataService);
+        }, 30000);
+
         $scope.doRefresh = function() {
 
-            //get current time
-            getCurrentTime($scope);
-
-            getSalaatTimes($scope);
-
-            //Decide what to display on home screen for namaaz times
-            setBooleans($scope);
-
-            //update from az-zahraa.org
-            getData($scope, dataService);
-
-
-            //Todays islamic date
-            getIslamicDate($scope);
+            refreshEverything($scope, dataService);
 
             //Stop the ion-refresher from spinning
             $scope.$broadcast('scroll.refreshComplete');
@@ -56,13 +48,27 @@ var app = angular.module('azZahraa.controllers', ['azZahraa.services'])
 
     });
 
+function refreshEverything($scope, dataService){
+    //get current time
+    getCurrentTime($scope);
 
+    getSalaatTimes($scope);
+
+    //Decide what to display on home screen for namaaz times
+    setBooleans($scope);
+
+    //update from az-zahraa.org
+    getData($scope, dataService);
+
+
+    //Todays islamic date
+    getIslamicDate($scope);
+}
 
 function getData($scope, dataService){
     var promise = dataService.getJson();
     promise.then(function(json){
         $scope.jsonData = json.data;
-        console.log($scope.jsonData);
 
         $scope.events = $scope.jsonData.events;
         $scope.calendarOffset = $scope.jsonData.calendarOffset;
@@ -84,7 +90,7 @@ function getData($scope, dataService){
     });
 }
 
-function setBooleans ($scope)
+function setBooleans($scope)
 {
     //Set default
     $scope.showImsaac = false;
@@ -119,7 +125,7 @@ function setBooleans ($scope)
     }
 }
 
-function getCurrentTime ($scope)
+function getCurrentTime($scope)
 {
     $scope.currentTime = new moment();
 }
@@ -130,7 +136,7 @@ function getIslamicDate ($scope)
     $scope.todayIslamicDate = writeIslamicDate(islamicDateOffset);
 }
 
-function getSalaatTimes ($scope)
+function getSalaatTimes($scope)
 {
     //Salaat times from SalaatTimes.js - TODO refactor SalaatTimes.js to not be horrible (https://stackoverflow.com/questions/8228281/what-is-the-function-construct-in-javascript)
     $scope.todayImsaac = moment(window.todaysTimeImsaac).add(1900, 'y');
