@@ -7763,6 +7763,9 @@ a.button {
         text-align: center;
         position: absolute;
         bottom: -6px; }
+  .platform-android drawer.animate {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    -webkit-transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
   .platform-android .list {
     padding-top: 0; }
   .platform-android .drawer-header {
@@ -7796,3 +7799,6 @@ a.button {
 
 .scroll-bar {
   visibility: hidden !important; }
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important; }
