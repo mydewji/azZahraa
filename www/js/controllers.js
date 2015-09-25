@@ -2,6 +2,7 @@ var app = angular.module('azZahraa.controllers', ['azZahraa.services'])
 
     .controller('AppCtrl', function ($scope, $http, dataService, $interval) {
 
+
         //set default nextEvent (title, date, description)
         $scope.nextEvent = {
             title: "Could not fetch event",
@@ -32,6 +33,12 @@ var app = angular.module('azZahraa.controllers', ['azZahraa.services'])
         //Todays islamic date
         getIslamicDate($scope);
 
+        //app ready -> remove splashscreen
+        $scope.$on('$ionicView.loaded', function() {
+            ionic.Platform.ready( function() {
+                if(navigator && navigator.splashscreen) navigator.splashscreen.hide();
+            });
+        });
 
         $scope.update = $interval(function() {
             refreshEverything($scope, dataService);
