@@ -1,6 +1,6 @@
 var app = angular.module('azZahraa.controllers', ['azZahraa.services'])
 
-    .controller('AppCtrl', function ($scope, $http, dataService, $interval) {
+    .controller('AppCtrl', function ($scope, $http, dataService, $interval, $cordovaCalendar, $filter) {
 
 
         //set default nextEvent (title, date, description)
@@ -39,6 +39,20 @@ var app = angular.module('azZahraa.controllers', ['azZahraa.services'])
                 if(navigator && navigator.splashscreen) navigator.splashscreen.hide();
             });
         });
+
+        $scope.addEvent = function(){
+            $cordovaCalendar.createEventInteractively({
+                title: $scope.nextEvent.title,
+                location: '8580 No 5 Rd, Richmond, BC, Canada',
+                notes: $filter('formatDescription')($scope.nextEvent.description),
+                startDate: new moment($scope.nextEvent.date, "D/M/yyyy h:mm:ss A").toDate(),
+                endDate: new moment($scope.nextEvent.date, "D/M/yyyy h:mm:ss A").add(3,'h').toDate()
+            }).then(function (result) {
+                console.log("Add successful");
+            }, function (err) {
+                console.log("Error: "+ err);
+            });
+        };
 
         $scope.update = $interval(function() {
             refreshEverything($scope, dataService);
