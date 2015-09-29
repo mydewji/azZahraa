@@ -1,6 +1,6 @@
 var app = angular.module('azZahraa.controllers', ['azZahraa.services'])
 
-    .controller('AppCtrl', function ($scope, $http, dataService, $interval, $cordovaCalendar, $filter) {
+    .controller('AppCtrl', function ($scope, $http, dataService, $interval, $cordovaCalendar, $filter, $ionicPopup) {
 
 
         //set default nextEvent (title, date, description)
@@ -40,19 +40,29 @@ var app = angular.module('azZahraa.controllers', ['azZahraa.services'])
             });
         });
 
-        $scope.addEvent = function(){
-            $cordovaCalendar.createEventInteractively({
-                title: $scope.nextEvent.title,
-                location: '8580 No 5 Rd, Richmond, BC, Canada',
-                notes: $filter('formatDescription')($scope.nextEvent.description),
-                startDate: new moment($scope.nextEvent.date, "D/M/yyyy h:mm:ss A").toDate(),
-                endDate: new moment($scope.nextEvent.date, "D/M/yyyy h:mm:ss A").add(3,'h').toDate()
-            }).then(function (result) {
-                console.log("Add successful");
-            }, function (err) {
-                console.log("Error: "+ err);
-            });
+        $scope.confirmAddEvent = function($eventTitle, $eventDate, $eventDescription) {
+            //make sure is not invalid event
+            $invalidEventTitle = "Could not fetch event";
+            if($eventTitle == $invalidEventTitle) {
+                    var alertPopup = $ionicPopup.alert({
+                        title: 'Could not add event',
+                        template: 'Something went wrong. Please ensure you have a valid network connection and refresh the app.'
+                    });
+            }
+            //else valid event -> ask user if you want to add
+            else {
+                var confirmPopup = $ionicPopup.confirm({
+                    title: 'Add event',
+                    template: 'Are you sure you want to add ' + $eventTitle + ' to your calendar?'
+                });
+                confirmPopup.then(function(res) {
+                    if(res) {
+                        addEvent($cordovaCalendar, $filter, $eventTitle, $eventDate, $eventDescription);
+                    }
+                });
+            }
         };
+
 
         $scope.update = $interval(function() {
             refreshEverything($scope, dataService);
@@ -167,3 +177,20 @@ function getSalaatTimes($scope)
     $scope.todaySunset = moment(window.todaysTimeSet).add(12, 'h').add(1900, 'y');
     $scope.todayMaghrib = moment(window.todaysTimeMaghrib).add(12, 'h').add(1900, 'y');
 }
+
+function addEvent($cordovaCalendar, $filter, $eventTitle, $eventDate, $eventDescription)
+{
+    console.log("add event");
+    $cordovaCalendar.createEventInteractively({
+        title: $eventTitle,
+        location: '8580 No 5 Rd, Richmond, BC, Canada',
+        notes: $filter('formatDescription')($eventDescription),
+        startDate: new moment($eventDate, "D/M/yyyy h:mm:ss A").toDate(),
+        endDate: new moment($eventDate, "D/M/yyyy h:mm:ss A").add(3,'h').toDate()
+    }).then(function (result) {
+        console.log("Add successful");
+    }, function (err) {
+        console.log("Error: "+ err);
+    });
+}
+

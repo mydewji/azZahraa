@@ -73,7 +73,7 @@
                 {{nextEvent.description | formatDescription}}
             </div>
 
-            <div class="item item-icon-left item-text-wrap" ng-click="addEvent()">
+            <div class="item item-icon-left item-text-wrap" ng-click="confirmAddEvent( nextEvent.title, nextEvent.date, nextEvent.description )">
                 <i class="icon ion-android-add-circle"></i>
                 Add to Calendar
             </div>
