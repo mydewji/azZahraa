@@ -44,11 +44,13 @@ drawer.animate {
   //-webkit-transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1.000);
 
   //smooth but slow?
-  //-webkit-transition: all linear 400ms;
-  //transition: all linear 400ms;
+  //-webkit-transition: all linear 200ms;
+  //transition: all linear 200ms;
 
   -webkit-transition: 200ms all ease;
   transition: 200ms all ease;
+  //-webkit-transition: 200ms all ease;
+  //transition: 200ms all ease;
 
 }
 
