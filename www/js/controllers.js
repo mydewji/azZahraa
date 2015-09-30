@@ -53,7 +53,7 @@ var app = angular.module('azZahraa.controllers', ['azZahraa.services'])
             else {
                 var confirmPopup = $ionicPopup.confirm({
                     title: 'Add event',
-                    template: 'Are you sure you want to add ' + $eventTitle + ' to your calendar?'
+                    template: 'Are you sure you want to add "' + $eventTitle + '" to your calendar?'
                 });
                 confirmPopup.then(function(res) {
                     if(res) {

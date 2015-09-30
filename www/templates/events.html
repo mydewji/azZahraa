@@ -1,4 +1,4 @@
-<ion-view view-title="Events">
+<ion-view view-title="Upcoming Events">
     <ion-content>
 
         <!-- Pull to Refresh -->
@@ -19,6 +19,11 @@
                 <div class="item item-icon-left item-text-wrap">
                     <i class="icon ion-edit"></i>
                     {{event.description | formatDescription}}
+                </div>
+
+                <div class="item item-icon-left item-text-wrap" ng-click="confirmAddEvent( event.title, event.date, event.description )">
+                    <i class="icon ion-android-add-circle"></i>
+                    Add to Calendar
                 </div>
             </div>
         </div>
