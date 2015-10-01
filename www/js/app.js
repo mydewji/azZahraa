@@ -5,7 +5,7 @@
 angular.module('azZahraa', ['ionic', 'azZahraa.controllers', 'ionic.contrib.drawer', 'azZahraa.filters', 'templates', 'ngIOS9UIWebViewPatch', 'ngCordova'])
 
 
-    .run(function ($ionicPlatform) {
+    .run(function ($ionicPlatform, $cordovaSplashscreen) {
         $ionicPlatform.ready(function () {
             // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
             // for form inputs)
@@ -18,6 +18,11 @@ angular.module('azZahraa', ['ionic', 'azZahraa.controllers', 'ionic.contrib.draw
                 // org.apache.cordova.statusbar required
                 StatusBar.styleLightContent();
             }
+
+            //app ready -> remove splashscreen
+            setTimeout(function() {
+                    $cordovaSplashscreen.hide();
+            }, 500);
 
         });
 

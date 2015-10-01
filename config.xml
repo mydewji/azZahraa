@@ -11,12 +11,14 @@
     <preference name="DisallowOverscroll" value="true" />
     <preference name="android-minSdkVersion" value="16" />
     <preference name="BackupWebStorage" value="none" />
-    <preference name="SplashScreen" value="screen" />
-    <preference name="AutoHideSplashScreen" value="false" />
-    <preference name="SplashScreenDelay" value="4000" />
+    <!--Splashscreen tweaks -->
     <preference name="ShowSplashScreenSpinner" value="false" />
+    <preference name="SplashScreen" value="screen"/>
+    <preference name="AutoHideSplashScreen" value="false" />
+    <preference name="SplashScreenDelay" value="300000000" />
     <preference name="FadeSplashScreen" value="true" />
-    <preference name="FadeSplashScreenDuration" value="2.0" />
+    <preference name="FadeSplashScreenDuration" value="1.0" />
+    <!--End of Splashscreen tweaks -->
     <preference name="orientation" value="portrait" />
     <preference name="StatusBarBackgroundColor" value="#025C02" />
     <feature name="StatusBar">

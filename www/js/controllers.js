@@ -33,12 +33,7 @@ var app = angular.module('azZahraa.controllers', ['azZahraa.services'])
         //Todays islamic date
         getIslamicDate($scope);
 
-        //app ready -> remove splashscreen
-        $scope.$on('$ionicView.loaded', function() {
-            ionic.Platform.ready( function() {
-                if(navigator && navigator.splashscreen) navigator.splashscreen.hide();
-            });
-        });
+
 
         $scope.confirmAddEvent = function($eventTitle, $eventDate, $eventDescription) {
             //make sure is not invalid event
