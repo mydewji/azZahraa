@@ -12,7 +12,7 @@ Step 3: Navigate to the cloned repository you downloaded in Step 0 and run run `
 
 Step 4: Run `ionic state reset` from within the root of the cloned repository
 
-Step 5: From within the root of the cloned repository run `ionic serve`
+Step 5: From within the root of the cloned repository run `ionic serve -l`
 
 #####Notes:
 To run on a device follow ionic instructions [here](http://ionicframework.com/docs/guide/testing.html)
