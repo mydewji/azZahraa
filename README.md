@@ -17,5 +17,11 @@ Step 5: From within the root of the cloned repository run `ionic serve -l`
 #####Notes:
 To run on a device follow ionic instructions [here](http://ionicframework.com/docs/guide/testing.html)
 
+If you have issues on windows and get an error message regarding "libsass bindings" try the following commands:
+`npm uninstall --save-dev gulp-sass`
+
+`npm uninstall --save-dev gulp-sass@2`
+
+
 
 
