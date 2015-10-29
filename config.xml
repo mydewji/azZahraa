@@ -15,7 +15,7 @@
     <preference name="ShowSplashScreenSpinner" value="false" />
     <preference name="SplashScreen" value="screen"/>
     <preference name="AutoHideSplashScreen" value="false" />
-    <preference name="SplashScreenDelay" value="300000000" />
+    <preference name="SplashScreenDelay" value="5000" />
     <preference name="FadeSplashScreen" value="true" />
     <preference name="FadeSplashScreenDuration" value="1.0" />
     <!--End of Splashscreen tweaks -->

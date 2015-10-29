@@ -136,11 +136,12 @@ function setBooleans($scope)
         $scope.showSunrise = true;
     }
 
-    //Case 1: sunrise -> sunset = show zuhr + sunset
+    //Case 1: sunrise -> sunset = show zuhr + sunset + maghrib
     if ($scope.currentTime.isBetween($scope.todaySunrise , $scope.todaySunset))
     {
         $scope.showZuhr = true;
         $scope.showSunset = true;
+        $scope.showMaghrib = true;
     }
 
     //Case 2: sunset -> midnight = show maghrib

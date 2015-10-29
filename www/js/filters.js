@@ -17,7 +17,7 @@ angular.module('azZahraa.filters', [])
 
     .filter('getTime', function () {
         return function (momentDate) {
-            var stringDateFormatted = momentDate.format("h:mm a");
+            var stringDateFormatted = momentDate.format("h:mm");
             return stringDateFormatted;
         };
     })
