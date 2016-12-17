@@ -96,13 +96,21 @@ function getData($scope, dataService){
     promise.then(function(json){
         $scope.jsonData = json.data;
 
-        $scope.events = $scope.jsonData.events;
         $scope.calendarOffset = $scope.jsonData.calendarOffset;
 
-        $scope.evenDates =  Date.parse($scope.jsonData.events[0].date);
+        // $scope.evenDates =  Date.parse($scope.jsonData.events[0].date);
 
         //add 3h to current time so event doesn't disappear whilst event is going on
         $scope.timeForCurrentEvent = $scope.currentTime.add(3, 'h');
+
+        // $scope.events = $scope.jsonData.events;
+        $scope.events = $scope.jsonData.events.filter(
+          function(e) {
+            var eventDateAsString = e.date;
+            var eventDate = moment(eventDateAsString, "D/M/yyyy h:mm:ss A").add(5, 'h');
+            return eventDate.isAfter($scope.timeForCurrentEvent);
+          });
+
         ////get next event and store in $scope.nextEvent
         for (var i = 0; i < ($scope.jsonData.events).length; i++) {
 
@@ -189,4 +197,3 @@ function addEvent($cordovaCalendar, $filter, $eventTitle, $eventDate, $eventDesc
         console.log("Error: "+ err);
     });
 }
-
