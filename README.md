@@ -22,6 +22,5 @@ If you have issues on windows and get an error message regarding "libsass bindin
 
 `npm uninstall --save-dev gulp-sass@2`
 
-* CSS generation seems to be a bit broken now -> so if you end up seeing an app with no styling that's what needs to be fixed
-
+* You may need to run `gulp` from within the root of the cloned repo to generate css files before running the ionic serve command
 
